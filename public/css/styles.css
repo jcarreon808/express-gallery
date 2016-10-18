@@ -8,7 +8,8 @@ body {
 #container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center; }
+  justify-content: center;
+  width: 100%; }
   #container #header {
     flex: 0 0 100%;
     margin-left: 250px; }
@@ -16,15 +17,27 @@ body {
       font-family: 'Work Sans';
       font-size: 50px; }
   #container #picture {
-    flex: 0 0 40%; }
+    padding: 20px;
+    flex: 0 0 40%;
+    background: rgba(205, 133, 63, 0.3);
+    margin-top: 23px;
+    margin-right: 20px;
+    max-height: 500px; }
   #container #sideBar {
     margin-top: 25px;
     flex: 0 0 20%;
-    max-height: 525px;
-    overflow-y: scroll; }
+    max-height: 700px;
+    overflow-y: scroll;
+    background: rgba(205, 133, 63, 0.3); }
 
-li {
-  list-style: none;
-  margin: 30px 0px 30px 0px; }
-  li img {
-    max-width: 300px; }
+ul {
+  margin-left: -40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+  ul li {
+    flex: 0 0 80%;
+    list-style: none;
+    margin-top: 30px; }
+    ul li img {
+      max-width: 100%; }
