@@ -1,0 +1,19 @@
+extends ./layout.pug
+
+block title
+  title Edit Page
+
+block body
+  div#editContainer
+    div#header
+      h1 _ARCHITEKT
+    div#form
+      img(src=link)
+      form(action="#" method="post")
+        p.field Author
+        input(name="author")
+        p.field Link
+        input(name="link")
+        p.field Description
+        input(name="description")
+        button#send Enter
