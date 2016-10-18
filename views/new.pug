@@ -1,0 +1,19 @@
+extends ./layout.pug
+
+block title
+  title Homepage
+
+block body
+  div#container
+    div#header
+      h1 _ARCHITEKT
+    div#form
+      h3 New Photo
+      form(method='post' action='#')
+        p.field Author
+        input(name ='author')
+        p.field Link
+        input(name ='link')
+        p.field Description
+        input(name ='description')
+        button#send Enter
