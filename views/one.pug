@@ -1,0 +1,16 @@
+extends ./layout.pug
+include ./mixins.pug
+
+block title
+  title Homepage
+
+block body
+  div#container
+    div#header
+      h1 _ARCHITEKT
+    div#picture
+      p.details #{one.title} by #{one.author}
+      img(src=one.link)
+      p.details #{one.description}
+    div#sideBar
+      +sideBar(all,one)

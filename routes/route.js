@@ -3,7 +3,7 @@ const pug = require('pug');
 const app = express();
 const Photo = require('../models').Photo;
 
-
+//homepage
 app.get('/', (req,res) => {
   Photo.findAll()
     .then(data =>{
@@ -12,17 +12,14 @@ app.get('/', (req,res) => {
     });
 });
 
+//new page
 app.get('/gallery/new', (req,res) => {
-  Photo.findAll()
-  .then(data=>{
-    res.render('new',{
-      data : 'something'
-    });
-  });
+  res.render('new',{});
 });
 
 app.post('/gallery/new', (req,res) => {
   Photo.create({
+    title: req.body.title,
     author: req.body.author,
     link: req.body.link,
     description: req.body.description
@@ -32,9 +29,10 @@ app.post('/gallery/new', (req,res) => {
     });
 });
 
-
+//postman
 app.post('/gallery', (req,res) => {
   Photo.create({
+    title: req.body.title,
     author: req.body.author,
     link: req.body.link,
     description: req.body.description
@@ -44,6 +42,7 @@ app.post('/gallery', (req,res) => {
     });
 });
 
+//edit page
 app.get('/gallery/:id/edit', (req,res) =>{
   Photo.findById(req.params.id)
     .then(data => {
@@ -56,6 +55,7 @@ app.post('/gallery/:id/edit', (req,res) =>{
   Photo.findById(req.params.id)
     .then(data => {
       data.update({
+        title: req.body.title,
         author: req.body.author,
         link: req.body.link,
         description: req.body.description
@@ -66,17 +66,30 @@ app.post('/gallery/:id/edit', (req,res) =>{
     });
 });
 
+//one page (detail page)
 app.get('/gallery/:id',(req,res) => {
-  Photo.findById(req.params.id)
+  Photo.findAll()
     .then(data => {
-      res.json({data});
-    });
+      let one = data.find(photo => {
+        if(photo.dataValues.id === parseInt(req.params.id)) {
+          return photo
+        }
+      })
+      console.log('the title',one.dataValues)
+      res.render('one',{
+        one: one.dataValues,
+        all: data
+      });
+    })
+
 });
 
+//postman
 app.put('/gallery/:id', (req,res) => {
   Photo.findById(req.params.id)
     .then(data => {
       data.update({
+        title: req.body.title,
         author: req.body.author,
         link: req.body.link,
         description: req.body.description
