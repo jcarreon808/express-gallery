@@ -1,3 +1,30 @@
 body {
-  background-color: lightblue;
-  color: white; }
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/72/62/5f/72625f8f0353330aaef16ebdb5b50526.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  font-family: 'Quattrocento Sans', sans-serif; }
+
+#container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+  #container #header {
+    flex: 0 0 100%;
+    margin-left: 250px; }
+    #container #header h1 {
+      font-family: 'Work Sans';
+      font-size: 50px; }
+  #container #picture {
+    flex: 0 0 40%; }
+  #container #sideBar {
+    margin-top: 25px;
+    flex: 0 0 20%;
+    max-height: 525px;
+    overflow-y: scroll; }
+
+li {
+  list-style: none;
+  margin: 30px 0px 30px 0px; }
+  li img {
+    max-width: 300px; }
