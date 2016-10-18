@@ -9,6 +9,12 @@ app.get('/', (req,res) => {
     .then(data =>{
       //res.render the index view
       res.render('index',{data});
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
+      })
     });
 });
 
@@ -26,6 +32,12 @@ app.post('/gallery/new', (req,res) => {
   })
     .then(done => {
       res.json({success:true});
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
+      })
     });
 });
 
@@ -39,6 +51,12 @@ app.post('/gallery', (req,res) => {
   })
     .then(done => {
       res.json({success:true});
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
+      })
     });
 });
 
@@ -48,6 +66,12 @@ app.get('/gallery/:id/edit', (req,res) =>{
     .then(data => {
       res.render('edit',{
         link: data.dataValues.link});
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
+      })
     });
 });
 
@@ -62,7 +86,19 @@ app.post('/gallery/:id/edit', (req,res) =>{
       })
       .then(done => {
         res.json({success: true});
+      })
+      .catch(err =>{
+        res.json({
+          success: false,
+          error: err
+        })
       });
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
+      })
     });
 });
 
@@ -81,6 +117,12 @@ app.get('/gallery/:id',(req,res) => {
         all: data
       });
     })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
+      })
+    });
 
 });
 
@@ -96,7 +138,19 @@ app.put('/gallery/:id', (req,res) => {
       })
       .then(done => {
         res.json({success: true});
+      })
+      .catch(err =>{
+        res.json({
+          success: false,
+          error: err
+        })
       });
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
+      })
     });
 });
 
@@ -107,6 +161,12 @@ app.delete('/gallery/:id', (req,res) => {
     })
     .then(done => {
       res.json({success:true});
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
+      })
     });
 });
 
