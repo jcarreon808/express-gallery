@@ -1,0 +1,13 @@
+extends ./layout.pug
+
+block title
+  title Homepage
+
+block body
+  div#container
+    div#header
+      h1 _ARCHITEKT
+    div#picturesContainer
+      mixin photoList(data)
+          each photo in data
+            img(src=data.link)

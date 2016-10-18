@@ -5,6 +5,7 @@ var route = require('./routes/route.js');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/',route);
+app.use(express.static('./public'));
 
 app.set('view engine','pug');
 app.set('views','./views');

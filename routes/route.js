@@ -8,7 +8,7 @@ app.get('/', (req,res) => {
   Photo.findAll()
     .then(data =>{
       //res.render the index view
-      res.json({data})
+      res.render('index',{data})
     })
 })
 
