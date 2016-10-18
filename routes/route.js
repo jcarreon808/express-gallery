@@ -14,7 +14,7 @@ app.get('/', (req,res) => {
       res.json({
         success: false,
         error: err
-      })
+      });
     });
 });
 
@@ -37,7 +37,7 @@ app.post('/gallery/new', (req,res) => {
       res.json({
         success: false,
         error: err
-      })
+      });
     });
 });
 
@@ -56,7 +56,7 @@ app.post('/gallery', (req,res) => {
       res.json({
         success: false,
         error: err
-      })
+      });
     });
 });
 
@@ -71,7 +71,7 @@ app.get('/gallery/:id/edit', (req,res) =>{
       res.json({
         success: false,
         error: err
-      })
+      });
     });
 });
 
@@ -91,14 +91,14 @@ app.post('/gallery/:id/edit', (req,res) =>{
         res.json({
           success: false,
           error: err
-        })
+        });
       });
     })
     .catch(err =>{
       res.json({
         success: false,
         error: err
-      })
+      });
     });
 });
 
@@ -108,10 +108,9 @@ app.get('/gallery/:id',(req,res) => {
     .then(data => {
       let one = data.find(photo => {
         if(photo.dataValues.id === parseInt(req.params.id)) {
-          return photo
+          return photo;
         }
-      })
-      console.log('the title',one.dataValues)
+      });
       res.render('one',{
         one: one.dataValues,
         all: data
@@ -121,7 +120,7 @@ app.get('/gallery/:id',(req,res) => {
       res.json({
         success: false,
         error: err
-      })
+      });
     });
 
 });
@@ -143,14 +142,14 @@ app.put('/gallery/:id', (req,res) => {
         res.json({
           success: false,
           error: err
-        })
+        });
       });
     })
     .catch(err =>{
       res.json({
         success: false,
         error: err
-      })
+      });
     });
 });
 
@@ -166,7 +165,7 @@ app.delete('/gallery/:id', (req,res) => {
       res.json({
         success: false,
         error: err
-      })
+      });
     });
 });
 
