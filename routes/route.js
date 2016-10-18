@@ -111,7 +111,6 @@ app.get('/gallery/:id',(req,res) => {
           return photo
         }
       })
-      console.log('the title',one.dataValues)
       res.render('one',{
         one: one.dataValues,
         all: data
