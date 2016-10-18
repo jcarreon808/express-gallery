@@ -10,3 +10,4 @@ app.listen(3000, function() {
   console.log('server started');
   db.sequelize.sync();
 });
+
