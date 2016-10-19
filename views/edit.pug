@@ -12,13 +12,15 @@ block body
     div#formSection
       form(action="#" method="post")
         p.field Title
-        input(name="title")
+        textarea(name="title" row='1')
         p.field Author
-        input(name="author")
+        textarea(name="author" row='1')
         p.field Link
-        input(name="link")
+        textarea(name="link" row='2')
         p.field Description
-        input(name="description")
+        textarea(name="description" row='10').description
         br
         br
         button#send Enter
+        br
+        br

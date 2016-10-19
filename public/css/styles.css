@@ -1,9 +1,14 @@
+* {
+  border-radius: 3px; }
+
 body {
   background-image: url("https://s-media-cache-ak0.pinimg.com/originals/72/62/5f/72625f8f0353330aaef16ebdb5b50526.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
-  font-family: 'Quattrocento Sans', sans-serif; }
+  font-family: 'Quattrocento Sans', sans-serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-size: 20px; }
 
 #header {
   flex: 0 0 100%;
@@ -18,7 +23,9 @@ body {
     font-family: 'Work Sans';
     font-size: 50px; }
   #header p {
-    flex: 0 0 400px; }
+    padding-top: 30px;
+    flex: 0 0 400px;
+    font-size: 15px; }
 
 #container {
   display: flex;
@@ -27,20 +34,20 @@ body {
   width: 960px;
   margin: 0 auto; }
   #container #picture {
-    padding: 20px;
     flex: 0 0 40%;
-    background: rgba(205, 133, 63, 0.3);
     margin-top: 23px;
-    margin-right: 20px;
-    max-height: 600px; }
-    #container #picture img {
-      max-width: 800px; }
+    margin-right: 20px; }
+    #container #picture #pic {
+      padding: 20px;
+      background: rgba(205, 133, 63, 0.4); }
+      #container #picture #pic img {
+        max-width: 700px; }
   #container #sideBar {
     margin-top: 25px;
     flex: 0 0 20%;
     max-height: 700px;
     overflow-y: scroll;
-    background: rgba(205, 133, 63, 0.3); }
+    background: rgba(205, 133, 63, 0.4); }
     #container #sideBar ul {
       margin-left: -40px;
       display: flex;
@@ -54,7 +61,11 @@ body {
           max-width: 100%; }
 
 #picturesContainer {
-  text-align: center; }
+  text-align: center;
+  background-color: rgba(205, 133, 63, 0.4);
+  margin-top: 20px;
+  width: 870px;
+  padding: 10px; }
   #picturesContainer ul {
     display: flex;
     flex-flow: row wrap;
@@ -68,14 +79,16 @@ body {
         max-width: 200px; }
 
 #featuredPicture {
-  flex: 0 0 100%;
-  text-align: center; }
+  flex: 0 0 850px;
+  text-align: center;
+  background-color: rgba(205, 133, 63, 0.4);
+  padding: 20px; }
   #featuredPicture img {
     max-width: 800px; }
 
 #form {
   justify-content: center;
-  background-color: rgba(205, 133, 63, 0.3);
+  background-color: rgba(205, 133, 63, 0.4);
   flex: 0 0 250px; }
   #form #newPhoto {
     text-align: center; }
@@ -86,6 +99,8 @@ body {
   flex: 0 0 50%;
   text-align: center;
   margin-right: 20px; }
+  #editPhoto img {
+    max-width: 500px; }
 
 a {
   text-decoration: none;
@@ -97,15 +112,37 @@ nav {
   flex-flow: row wrap;
   justify-content: flex-start;
   margin-left: 200px;
-  margin-bottom: 40px; }
+  margin-bottom: 20px; }
   nav #home {
     flex: 0 0 50px;
-    background: rgba(205, 133, 63, 0.3);
+    background: rgba(205, 133, 63, 0.4);
     padding: 10px 20px;
     margin-right: 20px;
-    text-align: center; }
+    text-align: center;
+    border-radius: 3px; }
   nav #new {
     flex: 0 0 50px;
-    background: rgba(205, 133, 63, 0.3);
+    background: rgba(205, 133, 63, 0.4);
     padding: 10px 20px;
-    text-align: center; }
+    text-align: center;
+    border-radius: 3px; }
+
+.details#description {
+  font-size: 16px; }
+
+textarea {
+  border-style: none;
+  resize: none; }
+
+input {
+  border-style: none; }
+
+#editButton {
+  margin-top: 20px;
+  background-color: rgba(30, 144, 255, 0.5);
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 3px; }
+  #editButton #editLink {
+    font-size: 30px; }
