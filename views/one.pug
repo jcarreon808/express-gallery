@@ -5,13 +5,9 @@ block title
   title Homepage
 
 block body
-  div#container
-    div#header
-      h1 _ARCHITEKT
-      p#welcomeNote Welcome to our online portfolio, we are a small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
-    div#picture
-      p.details #{one.title} by #{one.author}
-      img(src=one.link)
-      p.details #{one.description}
-    div#sideBar
-      +sideBar(all,one)
+  div#picture
+    p.details #{one.title} by #{one.author}
+    img(src=one.link)
+    p.details #{one.description}
+  div#sideBar
+    +sideBar(all,one)

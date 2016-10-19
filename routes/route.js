@@ -27,7 +27,7 @@ app.get('/gallery/new', (req,res) => {
   res.render('new',{});
 });
 
-app.post('/gallery/new', (req,res) => {
+app.post('/gallery/new', validate.newValidation, (req,res) => {
   Photo.create({
     title: req.body.title,
     author: req.body.author,
@@ -46,7 +46,7 @@ app.post('/gallery/new', (req,res) => {
 });
 
 //postman
-app.post('/gallery', (req,res) => {
+app.post('/gallery', validate.newValidation, (req,res) => {
   Photo.create({
     title: req.body.title,
     author: req.body.author,
@@ -130,7 +130,7 @@ app.get('/gallery/:id',(req,res) => {
 });
 
 //postman
-app.put('/gallery/:id', (req,res) => {
+app.put('/gallery/:id', validate.editValidation, (req,res) => {
   Photo.findById(req.params.id)
     .then(data => {
       data.update({

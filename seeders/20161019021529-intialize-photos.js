@@ -58,7 +58,8 @@ module.exports = {
       author: [
         'hawaiian islands',
         'nukunuku',
-        'marlin'
+        'marlin',
+        'deep blue'
       ]
     }, {});
 
