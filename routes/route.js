@@ -7,9 +7,7 @@ const Photo = require('../models').Photo;
 app.get('/', (req,res) => {
   Photo.findAll()
     .then(data =>{
-      // console.log(data);
       let one = data.slice(data.length-1)[0];
-      console.log(one);
       res.render('index',{
         data,
         one
