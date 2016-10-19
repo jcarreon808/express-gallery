@@ -15,12 +15,17 @@ body {
   justify-content:space-around;
   flex: 0 0 100%;
   margin-left: 250px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-bottom: 50px;
   h1 {
+    margin-left: -200px;
     flex: 0 0 200px;
     font-family: 'Work Sans';
     font-size: 50px;
   }
-  p{
+  p {
     flex: 0 0 400px;
   }
 }
@@ -48,29 +53,32 @@ body {
     max-height: 700px;
     overflow-y: scroll;
     background: $opaque-brown;
-  }
-}
-
-ul {
-  margin-left: -40px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  li {
-    flex: 0 0 80%;
-    list-style: none;
-    margin-top: 30px;
-    img {
-      max-width: 100%;
+      ul {
+      margin-left: -40px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      li {
+        flex: 0 0 80%;
+        list-style: none;
+        margin-top: 30px;
+        img {
+          max-width: 100%;
+        }
+      }
     }
   }
 }
 
+
 #picturesContainer {
+  text-align: center;
   ul{
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    justify-content: center;
+    margin-left: -40px;
     li{
       flex: 0 0 220px;
       img{
@@ -92,7 +100,7 @@ ul {
 #form {
   justify-content: center;
   background-color: $opaque-brown;
-  flex: 0 0 15%;
+  flex: 0 0 250px;
   #newPhoto {
     text-align: center;
   }
@@ -104,6 +112,7 @@ ul {
 #editPhoto {
   flex: 0 0 50%;
   text-align: center;
+  margin-right: 20px;
 }
 
 
