@@ -3,12 +3,18 @@ mixin photoList(data,one)
     each photo in data
       if photo.link != one.link
         li
-          img(src=photo.link)
+          - const route = '/gallery/' + photo.id
+          a(href=route)
+            img(src=photo.link)
+
+
 
 mixin sideBar(all,one)
   ul
     each photo in all
       if photo.link != one.link
         li
-          img(src=photo.link)
-          p #{photo.title}
+          - const route = '/gallery/' + photo.id
+          a(href=route)
+            img(src=photo.link)
+            p #{photo.title}

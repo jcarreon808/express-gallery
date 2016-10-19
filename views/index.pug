@@ -10,6 +10,8 @@ block body
       h1 _ARCHITEKT
       p#welcomeNote Welcome to our online portfolio, we are a small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
     div#featuredPicture
-      img(src=one.link)
+      -const route = '/gallery/' + one.id
+      a(href=route)
+        img(src=one.link)
     div#picturesContainer
       +photoList(data,one)

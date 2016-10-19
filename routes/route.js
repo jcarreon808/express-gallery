@@ -2,6 +2,7 @@ const express = require('express');
 const pug = require('pug');
 const app = express();
 const Photo = require('../models').Photo;
+const validate = require('./middleware.js');
 
 //homepage
 app.get('/', (req,res) => {
@@ -78,7 +79,7 @@ app.get('/gallery/:id/edit', (req,res) =>{
     });
 });
 
-app.post('/gallery/:id/edit', (req,res) =>{
+app.post('/gallery/:id/edit', validate.editValidation, (req,res) =>{
   Photo.findById(req.params.id)
     .then(data => {
       data.update({
