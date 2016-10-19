@@ -6,11 +6,17 @@ body {
   font-family: 'Quattrocento Sans', sans-serif; }
 
 #header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
   flex: 0 0 100%;
   margin-left: 250px; }
   #header h1 {
+    flex: 0 0 200px;
     font-family: 'Work Sans';
     font-size: 50px; }
+  #header p {
+    flex: 0 0 400px; }
 
 #container {
   display: flex;

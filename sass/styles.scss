@@ -10,11 +10,18 @@ body {
 }
 
 #header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:space-around;
   flex: 0 0 100%;
   margin-left: 250px;
   h1 {
+    flex: 0 0 200px;
     font-family: 'Work Sans';
     font-size: 50px;
+  }
+  p{
+    flex: 0 0 400px;
   }
 }
 
