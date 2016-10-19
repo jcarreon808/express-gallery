@@ -29,7 +29,7 @@ module.exports = {
       {
         title: 'pufferfish',
         author: 'hawaiian islands',
-        link: 'https://d18gmz9e98r8v5.cloudfront.net/ptr/20130523002001_1403111366_1192_9.jpg ',
+        link: 'https://d18gmz9e98r8v5.cloudfront.net/ptr/20130523002001_1403111366_1192_9.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         description: 'puff puff'
@@ -45,7 +45,7 @@ module.exports = {
       {
         title: 'honu two',
         author: 'hawaiian islands',
-        link: 'http://i.dailymail.co.uk/i/pix/2016/04/18/15/334BFC7500000578-0-image-a-70_1460989467196.jpg ',
+        link: 'http://i.dailymail.co.uk/i/pix/2016/04/18/15/334BFC7500000578-0-image-a-70_1460989467196.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
         description: 'woo'
