@@ -9,19 +9,21 @@ body {
   font-family: 'Quattrocento Sans', sans-serif;
 }
 
+#header {
+  flex: 0 0 100%;
+  margin-left: 250px;
+  h1 {
+    font-family: 'Work Sans';
+    font-size: 50px;
+  }
+}
+
 #container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
-  #header {
-    flex: 0 0 100%;
-    margin-left: 250px;
-    h1 {
-      font-family: 'Work Sans';
-      font-size: 50px;
-    }
-  }
+
   #picture {
     padding: 20px;
     flex: 0 0 40%;
@@ -32,7 +34,6 @@ body {
     img{
       max-width: 800px;
     }
-
   }
   #sideBar {
     margin-top: 25px;
@@ -78,4 +79,29 @@ ul {
   img{
     max-width: 800px;
   }
+}
+
+
+#form {
+  justify-content: center;
+  background-color: $opaque-brown;
+  flex: 0 0 15%;
+  #newPhoto {
+    text-align: center;
+  }
+  #formSection {
+    text-align: center;
+  }
+}
+
+#editPhoto {
+  flex: 0 0 50%;
+  text-align: center;
+}
+
+
+#editContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }

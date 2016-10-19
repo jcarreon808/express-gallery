@@ -7,15 +7,21 @@ block body
   div#editContainer
     div#header
       h1 _ARCHITEKT
-    div#form
+    div#editPhoto
       img(src=link)
-      form(action="#" method="post")
-        p.field Title
-        input(name="title")
-        p.field Author
-        input(name="author")
-        p.field Link
-        input(name="link")
-        p.field Description
-        input(name="description")
-        button#send Enter
+    div#form
+      div#editPhoto
+        h3 Edit Photo
+      div#formSection
+        form(action="#" method="post")
+          p.field Title
+          input(name="title")
+          p.field Author
+          input(name="author")
+          p.field Link
+          input(name="link")
+          p.field Description
+          input(name="description")
+          br
+          br
+          button#send Enter
