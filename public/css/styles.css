@@ -98,12 +98,18 @@ body {
   #form #formSection {
     text-align: center; }
 
-#editPhoto {
+#editPhotoContainer {
   flex: 0 0 50%;
   text-align: center;
   margin-right: 20px; }
-  #editPhoto img {
-    max-width: 500px; }
+  #editPhotoContainer #editBackground {
+    background-color: rgba(205, 133, 63, 0.4);
+    padding: 20px; }
+    #editPhotoContainer #editBackground img {
+      max-width: 500px; }
+
+#editTitle {
+  text-align: center; }
 
 a {
   text-decoration: none;
