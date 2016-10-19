@@ -6,8 +6,12 @@ block title
 
 block body
   div#picture
-    p.details #{one.title} by #{one.author}
-    img(src=one.link)
-    p.details #{one.description}
+    div#pic
+      p.details #{one.title} by #{one.author}
+      img(src=one.link)
+      p.details#description #{one.description}
+    div#editButton
+      - const route = '/gallery/' + one.id + '/edit'
+      a#editLink(href=route) Edit
   div#sideBar
     +sideBar(all,one)
