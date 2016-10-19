@@ -1,6 +1,9 @@
-mixin photoList(data)
-  each photo in data
-    img(src=photo.link)
+mixin photoList(data,one)
+  ul
+    each photo in data
+      if photo.link != one.link
+        li
+          img(src=photo.link)
 
 mixin sideBar(all,one)
   ul

@@ -7,8 +7,13 @@ const Photo = require('../models').Photo;
 app.get('/', (req,res) => {
   Photo.findAll()
     .then(data =>{
-      //res.render the index view
-      res.render('index',{data});
+      // console.log(data);
+      let one = data.slice(data.length-1)[0];
+      console.log(one);
+      res.render('index',{
+        data,
+        one
+      });
     })
     .catch(err =>{
       res.json({

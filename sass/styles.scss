@@ -28,7 +28,10 @@ body {
     background: $opaque-brown;
     margin-top: 23px;
     margin-right: 20px;
-    max-height: 500px;
+    max-height: 600px;
+    img{
+      max-width: 800px;
+    }
 
   }
   #sideBar {
@@ -52,5 +55,27 @@ ul {
     img {
       max-width: 100%;
     }
+  }
+}
+
+#picturesContainer {
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    li{
+      flex: 0 0 220px;
+      img{
+        max-width: 200px;
+      }
+    }
+  }
+}
+
+#featuredPicture {
+  flex: 0 0 100%;
+  text-align: center;
+  img{
+    max-width: 800px;
   }
 }

@@ -22,7 +22,9 @@ body {
     background: rgba(205, 133, 63, 0.3);
     margin-top: 23px;
     margin-right: 20px;
-    max-height: 500px; }
+    max-height: 600px; }
+    #container #picture img {
+      max-width: 800px; }
   #container #sideBar {
     margin-top: 25px;
     flex: 0 0 20%;
@@ -41,3 +43,18 @@ ul {
     margin-top: 30px; }
     ul li img {
       max-width: 100%; }
+
+#picturesContainer ul {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center; }
+  #picturesContainer ul li {
+    flex: 0 0 220px; }
+    #picturesContainer ul li img {
+      max-width: 200px; }
+
+#featuredPicture {
+  flex: 0 0 100%;
+  text-align: center; }
+  #featuredPicture img {
+    max-width: 800px; }
