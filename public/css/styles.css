@@ -27,7 +27,8 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  width: 100%; }
+  width: 960px;
+  margin: 0 auto; }
   #container #picture {
     padding: 20px;
     flex: 0 0 40%;
@@ -62,7 +63,8 @@ body {
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
-    margin-left: -40px; }
+    margin-left: -40px;
+    list-style: none; }
     #picturesContainer ul li {
       flex: 0 0 220px; }
       #picturesContainer ul li img {
@@ -88,11 +90,25 @@ body {
   text-align: center;
   margin-right: 20px; }
 
-#editContainer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center; }
-
 a {
   text-decoration: none;
   color: white; }
+
+nav {
+  flex: 0 0 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin-left: 200px;
+  margin-bottom: 40px; }
+  nav #home {
+    flex: 0 0 50px;
+    background: rgba(205, 133, 63, 0.3);
+    padding: 10px 20px;
+    margin-right: 20px;
+    text-align: center; }
+  nav #new {
+    flex: 0 0 50px;
+    background: rgba(205, 133, 63, 0.3);
+    padding: 10px 20px;
+    text-align: center; }

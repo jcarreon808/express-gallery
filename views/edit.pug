@@ -4,25 +4,21 @@ block title
   title Edit Page
 
 block body
-  div#editContainer
-    div#header
-      h1 _ARCHITEKT
-      p#welcomeNote Welcome to our online portfolio, we are a small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
+  div#editPhoto
+    img(src=link)
+  div#form
     div#editPhoto
-      img(src=link)
-    div#form
-      div#editPhoto
-        h3 Edit Photo
-      div#formSection
-        form(action="#" method="post")
-          p.field Title
-          input(name="title")
-          p.field Author
-          input(name="author")
-          p.field Link
-          input(name="link")
-          p.field Description
-          input(name="description")
-          br
-          br
-          button#send Enter
+      h3 Edit Photo
+    div#formSection
+      form(action="#" method="post")
+        p.field Title
+        input(name="title")
+        p.field Author
+        input(name="author")
+        p.field Link
+        input(name="link")
+        p.field Description
+        input(name="description")
+        br
+        br
+        button#send Enter

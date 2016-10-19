@@ -34,7 +34,8 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  width: 100%;
+  width: 960px;
+  margin: 0 auto;
 
   #picture {
     padding: 20px;
@@ -79,6 +80,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-left: -40px;
+    list-style: none;
     li{
       flex: 0 0 220px;
       img{
@@ -115,14 +117,29 @@ body {
   margin-right: 20px;
 }
 
-
-#editContainer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-
 a {
   text-decoration: none;
   color: white;
+}
+
+nav {
+  flex: 0 0 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin-left: 200px;
+  margin-bottom: 40px;
+  #home {
+    flex: 0 0 50px;
+    background: $opaque-brown;
+    padding: 10px 20px;
+    margin-right: 20px;
+    text-align: center;
+  }
+  #new {
+    flex: 0 0 50px;
+    background: $opaque-brown;
+    padding: 10px 20px;
+    text-align: center;
+  }
 }
