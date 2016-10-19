@@ -35,7 +35,20 @@ app.post('/gallery/new', validate.newValidation, (req,res) => {
     description: req.body.description
   })
     .then(done => {
-      res.json({success:true});
+      Photo.findAll()
+        .then(data =>{
+          let one = data.slice(data.length-1)[0];
+          res.render('index',{
+            data,
+            one
+          });
+        })
+        .catch(err =>{
+          res.json({
+            success: false,
+            error: err
+          });
+        });
     })
     .catch(err =>{
       res.json({
@@ -89,7 +102,24 @@ app.post('/gallery/:id/edit', validate.editValidation, (req,res) =>{
         description: req.body.description
       })
       .then(done => {
-        res.json({success: true});
+        Photo.findAll()
+        .then(data => {
+          let one = data.find(photo => {
+            if(photo.dataValues.id === parseInt(req.params.id)) {
+              return photo;
+            }
+          });
+          res.render('one',{
+            one: one.dataValues,
+            all: data
+          });
+        })
+        .catch(err =>{
+          res.json({
+            success: false,
+            error: err
+          });
+        });
       })
       .catch(err =>{
         res.json({
