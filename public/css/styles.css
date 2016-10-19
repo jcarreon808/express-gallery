@@ -5,17 +5,18 @@ body {
   color: white;
   font-family: 'Quattrocento Sans', sans-serif; }
 
+#header {
+  flex: 0 0 100%;
+  margin-left: 250px; }
+  #header h1 {
+    font-family: 'Work Sans';
+    font-size: 50px; }
+
 #container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   width: 100%; }
-  #container #header {
-    flex: 0 0 100%;
-    margin-left: 250px; }
-    #container #header h1 {
-      font-family: 'Work Sans';
-      font-size: 50px; }
   #container #picture {
     padding: 20px;
     flex: 0 0 40%;
@@ -58,3 +59,21 @@ ul {
   text-align: center; }
   #featuredPicture img {
     max-width: 800px; }
+
+#form {
+  justify-content: center;
+  background-color: rgba(205, 133, 63, 0.3);
+  flex: 0 0 15%; }
+  #form #newPhoto {
+    text-align: center; }
+  #form #formSection {
+    text-align: center; }
+
+#editPhoto {
+  flex: 0 0 50%;
+  text-align: center; }
+
+#editContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }

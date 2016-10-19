@@ -8,16 +8,20 @@ block body
     div#header
       h1 _ARCHITEKT
     div#form
-      h3 New Photo
-      form(method='post' action='#')
-        p.field Title
-        input(name='title')
-        p.field Author
-        input(name ='author')
-        p.field Link
-        input(name ='link')
-        p.field Description
-        input(name ='description')
-        br
-        br
-        button#send Enter
+      div#newPhoto
+        h3 New Photo
+      div#formSection
+        form(method='post' action='#')
+          p.field Title
+          input(name='title')
+          p.field Author
+          input(name ='author')
+          p.field Link
+          input(name ='link')
+          p.field Description
+          input(name ='description')
+          br
+          br
+          button#send Enter
+          br
+          br
