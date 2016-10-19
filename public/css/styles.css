@@ -134,6 +134,16 @@ textarea {
   border-style: none;
   resize: none; }
 
+button#send {
+  border-style: none;
+  background-color: white;
+  font-size: 20px;
+  font-family: 'Quattrocento Sans', sans-serif;
+  background-color: rgba(30, 144, 255, 0.5);
+  color: white; }
+  button#send:hover {
+    box-shadow: 2px 2px 2px black; }
+
 input {
   border-style: none; }
 
@@ -144,5 +154,7 @@ input {
   padding: 5px;
   text-align: center;
   border-radius: 3px; }
+  #editButton:hover {
+    box-shadow: 2px 2px 2px black; }
   #editButton #editLink {
     font-size: 30px; }
