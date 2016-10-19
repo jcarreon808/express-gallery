@@ -7,10 +7,18 @@ body {
 
 #header {
   flex: 0 0 100%;
-  margin-left: 250px; }
+  margin-left: 250px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-bottom: 50px; }
   #header h1 {
+    margin-left: -200px;
+    flex: 0 0 200px;
     font-family: 'Work Sans';
     font-size: 50px; }
+  #header p {
+    flex: 0 0 400px; }
 
 #container {
   display: flex;
@@ -32,27 +40,30 @@ body {
     max-height: 700px;
     overflow-y: scroll;
     background: rgba(205, 133, 63, 0.3); }
+    #container #sideBar ul {
+      margin-left: -40px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center; }
+      #container #sideBar ul li {
+        flex: 0 0 80%;
+        list-style: none;
+        margin-top: 30px; }
+        #container #sideBar ul li img {
+          max-width: 100%; }
 
-ul {
-  margin-left: -40px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center; }
-  ul li {
-    flex: 0 0 80%;
-    list-style: none;
-    margin-top: 30px; }
-    ul li img {
-      max-width: 100%; }
-
-#picturesContainer ul {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center; }
-  #picturesContainer ul li {
-    flex: 0 0 220px; }
-    #picturesContainer ul li img {
-      max-width: 200px; }
+#picturesContainer {
+  text-align: center; }
+  #picturesContainer ul {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin-left: -40px; }
+    #picturesContainer ul li {
+      flex: 0 0 220px; }
+      #picturesContainer ul li img {
+        max-width: 200px; }
 
 #featuredPicture {
   flex: 0 0 100%;
@@ -63,7 +74,7 @@ ul {
 #form {
   justify-content: center;
   background-color: rgba(205, 133, 63, 0.3);
-  flex: 0 0 15%; }
+  flex: 0 0 250px; }
   #form #newPhoto {
     text-align: center; }
   #form #formSection {
@@ -71,7 +82,8 @@ ul {
 
 #editPhoto {
   flex: 0 0 50%;
-  text-align: center; }
+  text-align: center;
+  margin-right: 20px; }
 
 #editContainer {
   display: flex;
