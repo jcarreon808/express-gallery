@@ -15,7 +15,7 @@ Gulp.task('dev', ['express', 'browser-sync', 'sass', 'sass:watch']);
 // Browser-Sync
 Gulp.task('browser-sync', _ => {
   BrowserSync.init({
-    proxy: `localhost:8080`
+    proxy: `localhost:8080/login`
   });
 });
 

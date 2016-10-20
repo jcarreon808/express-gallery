@@ -12,7 +12,7 @@ gallery.route('/')
     Photo.findAll()
       .then(data =>{
         let one = data.slice(data.length-1)[0];
-        res.render('index',{
+        res.render('./photos/index',{
           data,
           one
         });
@@ -28,7 +28,7 @@ gallery.route('/')
 //login page
 gallery.route('/login')
   .get((req,res)=>{
-    res.render('login');
+    res.render('./users/login');
   })
   .post(passport.authenticate('local',{
     successRedirect :'/',
@@ -38,7 +38,7 @@ gallery.route('/login')
 //new page
 gallery.route('/gallery/new')
   .get(validate.isAuthenticated, (req,res) => {
-    res.render('new',{});
+    res.render('./photos/new',{});
   })
   .post(validate.newValidation, (req,res) => {
     Photo.create({
@@ -51,7 +51,7 @@ gallery.route('/gallery/new')
         Photo.findAll()
           .then(data =>{
             let one = data.slice(data.length-1)[0];
-            res.render('index',{
+            res.render('./photos/index',{
               data,
               one
             });
@@ -96,7 +96,7 @@ gallery.route('/gallery/:id/edit')
   .get(validate.isAuthenticated, (req,res) =>{
     Photo.findById(req.params.id)
       .then(data => {
-        res.render('edit',{
+        res.render('./photos/edit',{
           link: data.dataValues.link});
       })
       .catch(err =>{
@@ -123,7 +123,7 @@ gallery.route('/gallery/:id/edit')
                 return photo;
               }
             });
-            res.render('one',{
+            res.render('./photos/one',{
               one: one.dataValues,
               all: data
             });
@@ -160,7 +160,7 @@ gallery.route('/gallery/:id')
             return photo;
           }
         });
-        res.render('one',{
+        res.render('./photos/one',{
           one: one.dataValues,
           all: data
         });
