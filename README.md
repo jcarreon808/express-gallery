@@ -23,4 +23,7 @@ In your command line within the repository you cloned:
 - in another terminal pane, run the command `sequelize db:migrate`
 - `gulp` to begin the server, it will automatically open your browser.
 
+###Optional
 
+If you would like an auto populated gallery:
+- run the command `sequelize db:seed:all` in your terminal
