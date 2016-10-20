@@ -3,6 +3,8 @@ const pug = require('pug');
 const app = express();
 const Photo = require('../models').Photo;
 const validate = require('./middleware.js');
+const passport = require('passport');
+
 
 //homepage
 app.get('/', (req,res) => {
@@ -22,8 +24,19 @@ app.get('/', (req,res) => {
     });
 });
 
+//login page
+app.get('/login', (req,res)=>{
+  console.log(passport);
+  res.render('login');
+});
+
+app.post('/login', passport.authenticate('local',{
+  successRedirect :'/',
+  failureRedirect :'/login',
+}));
+
 //new page
-app.get('/gallery/new', (req,res) => {
+app.get('/gallery/new',validate.isAuthenticated, (req,res) => {
   res.render('new',{});
 });
 
@@ -78,7 +91,7 @@ app.post('/gallery', validate.newValidation, (req,res) => {
 });
 
 //edit page
-app.get('/gallery/:id/edit', (req,res) =>{
+app.get('/gallery/:id/edit',validate.isAuthenticated, (req,res) =>{
   Photo.findById(req.params.id)
     .then(data => {
       res.render('edit',{
@@ -137,7 +150,7 @@ app.post('/gallery/:id/edit', validate.editValidation, (req,res) =>{
 });
 
 //one page (detail page)
-app.get('/gallery/:id',(req,res) => {
+app.get('/gallery/:id',validate.isAuthenticated,(req,res) => {
   Photo.findAll()
     .then(data => {
       let one = data.find(photo => {

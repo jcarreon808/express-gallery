@@ -38,8 +38,15 @@ function newValidation(req,res,next) {
   }
 }
 
+const isAuthenticated = (req, res, next) => {
+  if(!req.isAuthenticated()){
+    res.redirect('/login');
+  }
+  return next();
+};
 
 module.exports = {
   editValidation,
-  newValidation
+  newValidation,
+  isAuthenticated
 }
