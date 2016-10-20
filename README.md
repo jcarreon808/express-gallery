@@ -17,8 +17,9 @@ In your command line within the repository you cloned:
 - your username is on the left side of '=#'
 - `CREATE DATABASE express_gallery;` to initialize your database
 - `\c express_gallery` to enter into your database
-- in the config directory, open the config.json file
-- enter your username for your database under the development section.
+- in another terminal pane, run the command `touch config/config.json`
+- in the config directory, open the config_example.json file and copy all into the newly created config.json file.
+- In config.json, enter your username for your database under the development section.
 - in another terminal pane, run the command `sequelize db:migrate`
 - `gulp` to begin the server, it will automatically open your browser.
 
