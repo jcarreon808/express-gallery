@@ -8,7 +8,8 @@ module.exports = {
         link: 'http://www2.padi.com/blog/wp-content/uploads/2016/01/160108-Philippines-Marine-Life-Sea-Turtle-650x400.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        description: 'endangered species'
+        description: 'endangered species',
+        user_id: '1'
       },
       {
         title: 'kaanapali',
@@ -16,7 +17,8 @@ module.exports = {
         link: 'http://kaanapaliresort.com/wp-content/uploads/2016/01/image001.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        description: 'deep blue'
+        description: 'deep blue',
+        user_id: '1'
       },
       {
         title: 'finding nemo',
@@ -24,7 +26,8 @@ module.exports = {
         link: 'http://www.livescience.com/images/i/000/084/748/original/ocellaris-clownfish.jpg?interpolation=lanczos-none&downsize=*:1000',
         createdAt: new Date(),
         updatedAt: new Date(),
-        description: 'where he at?'
+        description: 'where he at?',
+        user_id: '2'
       },
       {
         title: 'pufferfish',
@@ -32,7 +35,8 @@ module.exports = {
         link: 'https://d18gmz9e98r8v5.cloudfront.net/ptr/20130523002001_1403111366_1192_9.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        description: 'puff puff'
+        description: 'puff puff',
+        user_id: '1'
       },
       {
         title: 'humumu',
@@ -40,7 +44,8 @@ module.exports = {
         link: 'http://www.statesymbolsusa.org/sites/statesymbolsusa.org/files/primary-images/HumuhumunukunukuapuaaHI.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        description: 'apua\'a'
+        description: 'apua\'a',
+        user_id: '1'
       },
       {
         title: 'honu two',
@@ -48,7 +53,8 @@ module.exports = {
         link: 'http://i.dailymail.co.uk/i/pix/2016/04/18/15/334BFC7500000578-0-image-a-70_1460989467196.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
-        description: 'woo'
+        description: 'woo',
+        user_id: '1'
       }], {});
 
   },
@@ -59,7 +65,7 @@ module.exports = {
         'hawaiian islands',
         'nukunuku',
         'marlin',
-        'deep blue'
+        'deep blue',
       ]
     }, {});
 
