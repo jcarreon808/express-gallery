@@ -18,4 +18,3 @@ app.listen(8080, function() {
   db.sequelize.sync();
 });
 
-module.exports = db;
