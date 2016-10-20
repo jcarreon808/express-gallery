@@ -33,6 +33,9 @@ passport.use(new LocalStrategy ((username, password, done)=>{
     }
   })
   .then((user)=>{
+    if(user === null) {
+      return done(null,false);
+    }
     const isAuthenticated =(username === user.username && password === user.password);
     if(!isAuthenticated){
       return done(null, false);
