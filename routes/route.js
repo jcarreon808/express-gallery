@@ -47,7 +47,8 @@ gallery.route('/gallery/new')
       title: req.body.title,
       author: req.body.author,
       link: req.body.link,
-      description: req.body.description
+      description: req.body.description,
+      userId: req.user.id
     })
       .then(done => {
         Photo.findAll()
@@ -98,10 +99,8 @@ gallery.route('/gallery/:id/edit')
   .get(validate.isAuthenticated, (req,res) =>{
     Photo.findById(req.params.id)
       .then(data => {
-        console.log('the data',data)
         res.render('./photos/edit',{
-          data: data.dataValues,
-          user: req.user.id
+          link: data.dataValues.link
         });
       })
       .catch(err =>{
@@ -165,8 +164,11 @@ gallery.route('/gallery/:id')
             return photo;
           }
         });
+        console.log('photo user id',one.dataValues.userId)
+        console.log('user id',req.user.id)
         res.render('./photos/one',{
           one: one.dataValues,
+          user: req.user.id,
           all: data
         });
       })
