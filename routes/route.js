@@ -215,9 +215,9 @@ gallery.route('/gallery/:id')
       });
   });
 
-gallery.route('/gallery/create')
+gallery.route('/create')
   .get((req,res)=>{
-      res.render('create');
+      res.render('./users/create');
     })
   .post(validate.newValidation, (req,res) => {
     User.create({
@@ -225,7 +225,7 @@ gallery.route('/gallery/create')
       password: req.body.password,
     })
       .then(done => {
-        res.render('login');
+        res.render('./users/login');
       })
       .catch(err =>{
         res.json({
