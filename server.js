@@ -11,7 +11,6 @@ const config = require('./config/config.json');
 
 
 app.use(bodyParser.urlencoded({extended:true}));
-app.use('/',route);
 app.use(express.static('./public'));
 
 app.set('view engine','pug');
@@ -28,7 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy ((username, password, done)=>{
-  db.user.findOne({
+  db.User.findOne({
     where: {
       username
     }
@@ -50,6 +49,7 @@ passport.deserializeUser((user, done)=>{
   return done(null, user);
 });
 
+app.use('/',route);
 
 app.listen(8080, function() {
   console.log('server started');
