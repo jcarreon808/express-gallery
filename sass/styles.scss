@@ -3,9 +3,17 @@ $opaque-brown: rgba(205, 133, 63, 0.4);
 $shadow: rgba(0,0,0,.5);
 $light-blue: rgba(30,144,255,.5);
 
-* {
+
+@mixin flexParent() {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@mixin curvedEdges() {
   border-radius: 3px;
 }
+
+
 
 body {
   background-image: url("https://s-media-cache-ak0.pinimg.com/originals/72/62/5f/72625f8f0353330aaef16ebdb5b50526.jpg");
@@ -18,13 +26,10 @@ body {
 }
 
 #header {
-  display: flex;
-  flex-flow: row wrap;
+  @include flexParent();
   justify-content:space-around;
   flex: 0 0 100%;
   margin-left: 250px;
-  display: flex;
-  flex-flow: row wrap;
   justify-content: space-around;
   margin-bottom: 50px;
   h1 {
@@ -41,8 +46,7 @@ body {
 }
 
 #container {
-  display: flex;
-  flex-flow: row wrap;
+  @include flexParent();
   justify-content: center;
   width: 960px;
   margin: 0 auto;
@@ -52,10 +56,12 @@ body {
     margin-top: 23px;
     margin-right: 20px;
     #pic {
+      @include curvedEdges();
       padding: 20px;
       background: $opaque-brown;
       img{
         max-width: 700px;
+        @include curvedEdges();
       }
     }
   }
@@ -65,16 +71,17 @@ body {
     max-height: 700px;
     overflow-y: scroll;
     background: $opaque-brown;
+    @include curvedEdges();
       ul {
       margin-left: -40px;
-      display: flex;
-      flex-flow: row wrap;
+      @include flexParent();
       justify-content: center;
       li {
         flex: 0 0 80%;
         list-style: none;
         margin-top: 30px;
         img {
+          @include curvedEdges();
           max-width: 100%;
         }
       }
@@ -89,9 +96,9 @@ body {
   margin-top: 20px;
   width: 870px;
   padding: 10px;
+  @include curvedEdges();
   ul{
-    display: flex;
-    flex-flow: row wrap;
+    @include flexParent();
     align-items: center;
     justify-content: center;
     margin-left: -40px;
@@ -99,6 +106,7 @@ body {
     li{
       flex: 0 0 220px;
       img{
+        @include curvedEdges();
         max-width: 200px;
       }
     }
@@ -110,7 +118,9 @@ body {
   text-align: center;
   background-color: $opaque-brown;
   padding: 20px;
+  @include curvedEdges();
   img{
+    @include curvedEdges();
     max-width: 800px;
   }
 }
@@ -152,8 +162,7 @@ a {
 
 nav {
   flex: 0 0 100%;
-  display: flex;
-  flex-flow: row wrap;
+  @include flexParent();
   justify-content: flex-start;
   margin-left: 200px;
   margin-bottom: 20px;
@@ -163,14 +172,14 @@ nav {
     padding: 10px 20px;
     margin-right: 20px;
     text-align: center;
-    border-radius: 3px;
+    @include curvedEdges();
   }
   #new {
     flex: 0 0 50px;
     background: $opaque-brown;
     padding: 10px 20px;
     text-align: center;
-    border-radius: 3px;
+    @include curvedEdges();
   }
 }
 
@@ -205,7 +214,7 @@ input {
   width: 60px;
   padding: 5px;
   text-align: center;
-  border-radius: 3px;
+  @include curvedEdges();
   &:hover {
     box-shadow: 2px 2px 2px black;
   }
