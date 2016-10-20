@@ -45,8 +45,13 @@ const isAuthenticated = (req, res, next) => {
   return next();
 };
 
+function isOwner(req,res,next) {
+  console.log('req user')
+}
+
 module.exports = {
   editValidation,
   newValidation,
-  isAuthenticated
+  isAuthenticated,
+  isOwner
 }

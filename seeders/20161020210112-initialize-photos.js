@@ -9,7 +9,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         description: 'endangered species',
-        user_id: '1'
+        userId: 1
       },
       {
         title: 'kaanapali',
@@ -18,7 +18,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         description: 'deep blue',
-        user_id: '1'
+        userId: 1
       },
       {
         title: 'finding nemo',
@@ -27,7 +27,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         description: 'where he at?',
-        user_id: '2'
+        userId: 2
       },
       {
         title: 'pufferfish',
@@ -36,7 +36,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         description: 'puff puff',
-        user_id: '1'
+        userId: 1
       },
       {
         title: 'humumu',
@@ -45,7 +45,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         description: 'apua\'a',
-        user_id: '1'
+        userId: 1
       },
       {
         title: 'honu two',
@@ -54,7 +54,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
         description: 'woo',
-        user_id: '1'
+        userId: 1
       }], {});
 
   },

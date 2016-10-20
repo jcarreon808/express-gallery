@@ -20,6 +20,7 @@ gallery.route('/')
       })
       .catch(err =>{
         res.json({
+          testing: 'here',
           success: false,
           error: err
         });
@@ -97,8 +98,11 @@ gallery.route('/gallery/:id/edit')
   .get(validate.isAuthenticated, (req,res) =>{
     Photo.findById(req.params.id)
       .then(data => {
+        console.log('the data',data)
         res.render('./photos/edit',{
-          link: data.dataValues.link});
+          data: data.dataValues,
+          user: req.user.id
+        });
       })
       .catch(err =>{
         res.json({
