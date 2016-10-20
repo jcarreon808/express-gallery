@@ -1,43 +1,25 @@
-Express Gallery
+_ARCHITEKT
 ===============
 
-Express, Sequelize, HTML5, stored on PostgreSQL
-
-Use the Express, Sequelize, and *almost* any other library or templating engines you want to fulfill the requirements.
-recommended: jade and sass.
-helpful: livereload, gulp for watching compiling sass
+Express, Sequelize, HTML5, Sass, Gulp, Pug, stored on PostgreSQL
 
 ---
 
-Create a multi-user Gallery.
-Any user should be able to access these routes:
-
-- `GET /` to view a list of gallery photos
-- `GET /gallery/:id` to see a single gallery photo
-  - each gallery photo should include a link to delete this gallery photo
-  - each gallery photo should include a link to edit this gallery photo
-- `GET /gallery/new` to see a "new photo" form
-  - the form fields are:
-    - `author` : Text
-    - `link` : Text (the image url)
-    - `description` : TextArea
-- `POST /gallery` to create a new gallery photo i
-- `GET /gallery/:id/edit` to see a form to *edit* a gallery photo identified by the `:id` param
-  - the form fields are:
-    - `author` : Text
-    - `link` : Text (the image url)
-    - `description` : TextArea
-- `PUT /gallery/:id` updates a single gallery photo identified by the `:id` param
-- `DELETE /gallery/:id` to delete a single gallery photo identified by the `:id` param
+Architekt is a gallery for all your photos. To start Architekt, git clone our repository to your local computer.
 
 ---
 
-The layout of the app must match the layouts included in `/layouts`.
-Match the layout as close as you can, using free and open fonts and graphics.
+###Run Architekt on your computer
 
----
+In your command line within the repository you cloned:
+- `npm install` to install all dependencies for the project
+- `psql` to enter Postgres
+- your username is on the left side of '=#'
+- `CREATE DATABASE express_gallery;` to initialize your database
+- `\c express_gallery` to enter into your database
+- in the config directory, open the config.json file
+- enter your username for your database under the development section.
+- in another terminal pane, run the command `sequelize db:migrate`
+- `gulp` to begin the server, it will automatically open your browser.
 
-#### Responsive Layout
 
-- does not have tablet layout
-- uses a background image that is not included, you will have to find something similar (subtlepatterns.com)
