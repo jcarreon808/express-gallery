@@ -2,6 +2,7 @@ const express = require('express');
 const pug = require('pug');
 const gallery = express.Router();
 const Photo = require('../models').Photo;
+const User = require('../models').User;
 const validate = require('./middleware.js');
 const passport = require('passport');
 
@@ -205,6 +206,26 @@ gallery.route('/gallery/:id')
       })
       .then(done => {
         res.json({success:true});
+      })
+      .catch(err =>{
+        res.json({
+          success: false,
+          error: err
+        });
+      });
+  });
+
+gallery.route('/gallery/create')
+  .get((req,res)=>{
+      res.render('create');
+    })
+  .post(validate.newValidation, (req,res) => {
+    User.create({
+      username: req.body.username,
+      password: req.body.password,
+    })
+      .then(done => {
+        res.render('login');
       })
       .catch(err =>{
         res.json({
