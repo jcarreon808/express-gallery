@@ -76,7 +76,7 @@ gallery.route('/gallery/new')
 
 //postman
 gallery.route('/gallery')
-  .post(validate.newValidation, (req,res) => {
+  .post(validate.newValidation, validate.owner, (req,res) => {
     Photo.create({
       title: req.body.title,
       author: req.body.author,
@@ -110,7 +110,7 @@ gallery.route('/gallery/:id/edit')
         });
       });
   })
-  .post(validate.editValidation, (req,res) =>{
+  .post(validate.editValidation, validate.owner, (req,res) =>{
     Photo.findById(req.params.id)
       .then(data => {
         data.update({
@@ -177,7 +177,7 @@ gallery.route('/gallery/:id')
         });
       });
   })
-  .put(validate.editValidation, (req,res) => {
+  .put(validate.editValidation, validate.owner, (req,res) => {
     Photo.findById(req.params.id)
       .then(data => {
         data.update({
@@ -203,7 +203,7 @@ gallery.route('/gallery/:id')
         });
       });
   })
-  .delete((req,res) => {
+  .delete(validate.authentication, validate.owner, (req,res) => {
     Photo.findById(req.params.id)
       .then(data => {
         data.destroy();
