@@ -19,12 +19,20 @@ mixin sideBar(all,one)
             img(src=photo.link)
             p #{photo.title}
 
-mixin sideNav()
+mixin sideNav(photo,userUserId)
   #mySidenav.sidenav
-    a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
-    a(href='/') Home
-    a(href='/gallery/new') New
-    a(href='/logout') Logout
+    if photo != 0 && photo.userId == userUserId
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+      a(href='/') Home
+      a(href='/gallery/new') New
+      a(href='/logout') Logout
+      a(href='/gallery/' + photo.id + '/edit') Edit
+      a(href='/gallery/' + photo.id + '/delete') Delete
+    else
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+      a(href='/') Home
+      a(href='/gallery/new') New
+      a(href='/logout') Logout
   #menu
     #menuBox(style="font-size:30px;cursor:pointer" onclick="openNav()")
       span
