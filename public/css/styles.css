@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/72/62/5f/72625f8f0353330aaef16ebdb5b50526.jpg");
+  background: url("../photos/sandybeach.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
@@ -221,6 +221,10 @@ input {
     color: #818181;
     display: block;
     transition: 0.3s; }
+  #menu {
+    flex: 0 0 100%;
+    text-align: center;
+    display: block; }
   .sidenav a:hover, .offcanvas a:focus {
     color: #f1f1f1; }
   .sidenav .closebtn {
@@ -261,7 +265,8 @@ input {
             max-height: 200px; }
   #header {
     text-align: center;
-    flex: 0 0 400px; }
+    flex: 0 0 400px;
+    margin-bottom: 0; }
     #header h1 {
       margin-right: 40px;
       font-family: 'Work Sans';
@@ -278,7 +283,9 @@ input {
     max-width: 340px; }
     #featuredPicture img {
       max-width: 300px; }
-  #editPhotoContainer #editBackground {
-    margin: 3px auto; }
-    #editPhotoContainer #editBackground img {
-      max-width: 200px; } }
+  #editPhotoContainer {
+    margin: 5px auto; }
+    #editPhotoContainer #editBackground {
+      margin: 3px auto; }
+      #editPhotoContainer #editBackground img {
+        max-width: 200px; } }
