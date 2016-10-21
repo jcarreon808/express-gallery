@@ -251,3 +251,60 @@ input {
     box-shadow: 2px 2px 2px black;
   }
 }
+
+@media screen and (max-width: 480px) {
+  #container {
+    @include flexParent();
+    justify-content: center;
+    width: 400px;
+    margin: 0 auto;
+    #picture {
+      max-width: 340px;
+      #pic {
+        img {
+          max-width: 300px;
+        }
+      }
+    }
+    #sideBar {
+      flex: 0 0 340px;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      max-height: 300px;
+      ul {
+        display: inline-block;
+        white-space: nowrap;
+        li {
+          display: inline-block;
+          width: 340px;
+          img {
+            max-width: 300px;
+          }
+        }
+      }
+    }
+  }
+  #header {
+    text-align: center;
+    flex: 0 0 400px;
+    h1 {
+      margin-right: 40px;
+      font-family: 'Work Sans';
+      font-size: 50px;
+    }
+    p {
+      display: none;
+    }
+    #logout {
+      margin-right: 250px;
+    }
+  }
+
+  #featuredPicture {
+    max-width: 340px;
+    img {
+      max-width: 300px;
+    }
+  }
+
+}

@@ -195,3 +195,43 @@ input {
   color: white; }
   #logout:hover {
     box-shadow: 2px 2px 2px black; }
+
+@media screen and (max-width: 480px) {
+  #container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 400px;
+    margin: 0 auto; }
+    #container #picture {
+      max-width: 340px; }
+      #container #picture #pic img {
+        max-width: 300px; }
+    #container #sideBar {
+      flex: 0 0 340px;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      max-height: 300px; }
+      #container #sideBar ul {
+        display: inline-block;
+        white-space: nowrap; }
+        #container #sideBar ul li {
+          display: inline-block;
+          width: 340px; }
+          #container #sideBar ul li img {
+            max-width: 300px; }
+  #header {
+    text-align: center;
+    flex: 0 0 400px; }
+    #header h1 {
+      margin-right: 40px;
+      font-family: 'Work Sans';
+      font-size: 50px; }
+    #header p {
+      display: none; }
+    #header #logout {
+      margin-right: 250px; }
+  #featuredPicture {
+    max-width: 340px; }
+    #featuredPicture img {
+      max-width: 300px; } }

@@ -31,5 +31,9 @@ node_modules
 *.DS_Store
 
 config/config.json
+<<<<<<< HEAD
 
 dump.rdb
+=======
+dump.rdb
+>>>>>>> a09de02ad24dd5ab1fe5bad688504883e57b5d4a
