@@ -170,3 +170,15 @@ input {
     box-shadow: 2px 2px 2px black; }
   #editButton #editLink {
     font-size: 30px; }
+
+#deleteButton {
+  margin-top: 20px;
+  background-color: rgba(30, 144, 255, 0.5);
+  width: 85px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 3px; }
+  #deleteButton:hover {
+    box-shadow: 2px 2px 2px black; }
+  #deleteButton a {
+    font-size: 30px; }

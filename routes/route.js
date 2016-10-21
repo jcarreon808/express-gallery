@@ -219,6 +219,23 @@ gallery.route('/gallery/:id')
       });
   });
 
+gallery.route('/gallery/:id/delete')
+  .get(validate.authentication, validate.owner,(req,res)=>{
+    Photo.findById(req.params.id)
+      .then(data => {
+        data.destroy();
+      })
+      .then(done => {
+        res.render('./photos/delete');
+      })
+      .catch(err =>{
+        res.json({
+          success: false,
+          error: err
+        });
+      });
+  })
+
 gallery.route('/create')
   .get((req,res)=>{
       res.render('./users/create');

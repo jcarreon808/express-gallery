@@ -14,5 +14,8 @@ block body
       div#editButton
         - const route = '/gallery/' + one.id + '/edit'
         a#editLink(href=route) Edit
+      div#deleteButton
+        - const deleteRoute = '/gallery/' + one.id + '/delete'
+        a#editLink(href=deleteRoute) Delete
   div#sideBar
     +sideBar(all,one)
