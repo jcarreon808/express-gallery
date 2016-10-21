@@ -114,10 +114,19 @@ function owner(req,res,next) {
     });
 }
 
+function password(req,res,next) {
+  if (req.body.confirmPassword === req.body.password) {
+    next();
+  } else {
+    res.redirect('/create');
+  }
+}
+
 module.exports = {
   editValidation,
   newValidation,
   authentication,
   username,
-  owner
+  owner,
+  password
 }
