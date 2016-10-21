@@ -192,6 +192,8 @@ textarea {
 }
 
 button#send {
+  display: block;
+  margin: 10px auto;
   border-style: none;
   background-color: white;
   font-size: 20px;
