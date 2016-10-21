@@ -1,5 +1,5 @@
 const Photo = require('../models').Photo;
-
+const User = require('../models').User;
 
 function editValidation(req, res, next) {
   Photo.findById(req.params.id)
@@ -22,6 +22,12 @@ function editValidation(req, res, next) {
 
       next();
     })
+    .catch(err => {
+      res.json({
+        success: false,
+        error: err
+      });
+    })
 }
 
 function newValidation(req,res,next) {
@@ -38,20 +44,38 @@ function newValidation(req,res,next) {
   }
 }
 
-const isAuthenticated = (req, res, next) => {
+const authentication = (req, res, next) => {
   if(!req.isAuthenticated()){
     res.redirect('/login');
+  } else {
+    return next();
   }
-  return next();
 };
 
-function isOwner(req,res,next) {
-  console.log('req user')
+function username(req,res,next) {
+  User.findOne({
+    where: {
+      username: req.body.username
+    }
+  })
+  .then(user => {
+    if (user === null) {
+      next();
+    } else {
+      res.redirect('/create');
+    }
+  })
+  .catch(err => {
+    res.json({
+      success: false,
+      error: err
+    });
+  })
 }
 
 module.exports = {
   editValidation,
   newValidation,
-  isAuthenticated,
-  isOwner
+  authentication,
+  username
 }

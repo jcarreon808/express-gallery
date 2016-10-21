@@ -39,7 +39,7 @@ gallery.route('/login')
 
 //new page
 gallery.route('/gallery/new')
-  .get(validate.isAuthenticated, (req,res) => {
+  .get(validate.authentication, (req,res) => {
     res.render('./photos/new',{});
   })
   .post(validate.newValidation, (req,res) => {
@@ -96,7 +96,7 @@ gallery.route('/gallery')
 
 //edit page
 gallery.route('/gallery/:id/edit')
-  .get(validate.isAuthenticated, (req,res) =>{
+  .get(validate.authentication, (req,res) =>{
     Photo.findById(req.params.id)
       .then(data => {
         res.render('./photos/edit',{
@@ -156,7 +156,7 @@ gallery.route('/gallery/:id/edit')
 
 //one page (detail page)
 gallery.route('/gallery/:id')
-  .get(validate.isAuthenticated,(req,res) => {
+  .get(validate.authentication,(req,res) => {
     Photo.findAll()
       .then(data => {
         let one = data.find(photo => {
@@ -164,8 +164,6 @@ gallery.route('/gallery/:id')
             return photo;
           }
         });
-        console.log('photo user id',one.dataValues.userId)
-        console.log('user id',req.user.id)
         res.render('./photos/one',{
           one: one.dataValues,
           user: req.user.id,
@@ -225,7 +223,7 @@ gallery.route('/create')
   .get((req,res)=>{
       res.render('./users/create');
     })
-  .post(validate.newValidation, (req,res) => {
+  .post(validate.username, validate.newValidation, (req,res) => {
     User.create({
       username: req.body.username,
       password: req.body.password,

@@ -6,7 +6,7 @@ block title
 block body
   div#form
     div#newPhoto
-      h3 Sign In
+      h3 Log In
     div#formSection
       form(method='post' action='login')
         p.field Username
@@ -15,6 +15,11 @@ block body
         input(type='password' name='password')
         br
         br
-        button(type="submit") Sign In
+        button#send(type="submit") Log In
         br
         br
+
+      a(href='/create')
+        button#send Create New User
+      br
+      br
