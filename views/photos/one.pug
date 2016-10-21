@@ -5,6 +5,7 @@ block title
   title Homepage
 
 block body
+  +sideNav()
   div#picture
     div#pic
       p.details #{one.title} by #{one.author}
@@ -19,23 +20,7 @@ block body
         a#editLink(href=deleteRoute) Delete
   div#sideBar
     +sideBar(all,one)
-  #mySidenav.sidenav
-    a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
-    a(href='#') About
-    a(href='#') Services
-    a(href='#') Clients
-    a(href='#') Contact
-  div#main
-    span(style="font-size:30px;cursor:pointer" onclick="openNav()") open
-  script.
-    function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    }
-    function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-    }
+
 
 
 

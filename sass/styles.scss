@@ -344,7 +344,13 @@ input {
     #logout {
       margin-right: 250px;
     }
+    a {
+      display: none;
+    }
 
+  }
+  nav {
+    display: none;
   }
 
   #featuredPicture {

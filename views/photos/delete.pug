@@ -1,9 +1,11 @@
 extends ../layout.pug
+include ./mixins.pug
 
 block title
   title Delete Photo
 
 block body
+  +sideNav()
   div#form
     div#newPhoto
       h3 Your photo has been deleted!

@@ -267,6 +267,10 @@ input {
       display: none; }
     #header #logout {
       margin-right: 250px; }
+    #header a {
+      display: none; }
+  nav {
+    display: none; }
   #featuredPicture {
     max-width: 340px; }
     #featuredPicture img {

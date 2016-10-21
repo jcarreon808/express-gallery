@@ -18,3 +18,19 @@ mixin sideBar(all,one)
           a(href=route)
             img(src=photo.link)
             p #{photo.title}
+
+mixin sideNav()
+  #mySidenav.sidenav
+    a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+    a(href='/') Home
+    a(href='/gallery/new') New
+    a(href='/logout') Logout
+  div
+    span(style="font-size:30px;cursor:pointer" onclick="openNav()") Menu
+  script.
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    }

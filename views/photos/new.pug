@@ -1,9 +1,11 @@
 extends ../layout.pug
+include ./mixins.pug
 
 block title
   title Homepage
 
 block body
+  +sideNav()
   div#form
     div#newPhoto
       h3 New Photo
