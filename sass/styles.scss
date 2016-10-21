@@ -209,10 +209,12 @@ input {
 
 #editButton {
   margin-top: 20px;
+  margin-right: 20px;
   background-color: $light-blue;
   width: 60px;
   padding: 5px;
   text-align: center;
+  display: inline-block;
   @include curvedEdges();
   &:hover {
     box-shadow: 2px 2px 2px black;
@@ -228,11 +230,24 @@ input {
   width: 85px;
   padding: 5px;
   text-align: center;
+  display: inline-block;
   @include curvedEdges();
   &:hover {
     box-shadow: 2px 2px 2px black;
   }
   a {
     font-size: 30px;
+  }
+}
+
+#logout {
+  border-style: none;
+  background-color: white;
+  font-size: 25px;
+  font-family: 'Quattrocento Sans', sans-serif;
+  background-color: $opaque-brown;
+  color: white;
+  &:hover {
+    box-shadow: 2px 2px 2px black;
   }
 }
