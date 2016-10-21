@@ -96,7 +96,7 @@ gallery.route('/gallery')
 
 //edit page
 gallery.route('/gallery/:id/edit')
-  .get(validate.authentication, (req,res) =>{
+  .get(validate.authentication, validate.owner, (req,res) =>{
     Photo.findById(req.params.id)
       .then(data => {
         res.render('./photos/edit',{
