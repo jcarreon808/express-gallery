@@ -196,6 +196,12 @@ input {
   #logout:hover {
     box-shadow: 2px 2px 2px black; }
 
+.sidenav a {
+  display: none; }
+
+#menu {
+  display: none; }
+
 @media screen and (max-width: 480px) {
   .sidenav {
     height: 100%;
@@ -223,9 +229,6 @@ input {
     right: 25px;
     font-size: 36px;
     margin-left: 50px; }
-  #main {
-    transition: margin-left .5s;
-    padding: 16px; }
   #container {
     display: flex;
     flex-flow: row wrap;
