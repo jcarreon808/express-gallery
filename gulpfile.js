@@ -5,12 +5,22 @@ const Gulp = require('gulp');
 const Sass = require('gulp-sass');
 const Concat = require('gulp-concat');
 const BrowserSync = require('browser-sync');
-const Spawn = require('child_process').spawn;
+const childProcess = require('child_process');
 
 
 Gulp.task('default', ['dev']);
 
-Gulp.task('dev', ['express', 'browser-sync', 'sass', 'sass:watch']);
+Gulp.task('dev', ['redis-server','express', 'browser-sync', 'sass', 'sass:watch']);
+
+//Redis-Server
+Gulp.task('redis-server', function() {
+  childProcess.exec('redis-server', function(err, stdout, stderr) {
+    console.log(stdout);
+    if (err !== null) {
+      console.log('exec error: ' + err);
+    }
+  });
+});
 
 // Browser-Sync
 Gulp.task('browser-sync', _ => {
@@ -22,7 +32,7 @@ Gulp.task('browser-sync', _ => {
 // Express server
 Gulp.task('express', _ => {
   let options = { shell: true, stdio: "inherit" };
-  return Spawn('nodemon', ['server.js'], options);
+  return childProcess.spawn('nodemon', ['server.js'], options);
 });
 
 // SASS
