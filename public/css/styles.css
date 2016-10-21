@@ -236,6 +236,9 @@ input {
       border-radius: 5px;
       border: solid 2px white;
       text-align: center; }
+      #menu #menuBox:hover {
+        background-color: rgba(30, 144, 255, 0.5);
+        transition: 0.3s; }
       #menu #menuBox span {
         flex: 0 0 40px;
         margin: auto;

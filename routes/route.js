@@ -9,7 +9,7 @@ const passport = require('passport');
 
 //homepage
 gallery.route('/')
-  .get((req,res) => {
+  .get(validate.authentication, (req,res) => {
     Photo.findAll()
       .then(data =>{
         let one = data.slice(data.length-1)[0];

@@ -281,7 +281,7 @@ input {
     font-size: 25px;
     color: #818181;
     display: block;
-    transition: 0.3s
+    transition: 0.3s;
   }
   #menu {
     flex: 0 0 100%;
@@ -296,6 +296,10 @@ input {
       border-radius: 5px;
       border: solid 2px white;
       text-align: center;
+      &:hover {
+        background-color: $light-blue;
+        transition: 0.3s;
+      }
       span {
         flex: 0 0 40px;
         margin: auto;
@@ -311,6 +315,7 @@ input {
           top: 28px;
         }
       }
+
     }
   }
 
