@@ -285,8 +285,33 @@ input {
   }
   #menu {
     flex: 0 0 100%;
-    text-align: center;
-    display: block;
+    @include flexParent();
+    justify-content: center;
+    margin-bottom: 10px;
+    #menuBox {
+      flex: 0 0 50px;
+      height: 45px;
+      @include flexParent();
+      margin: 0;
+      border-radius: 5px;
+      border: solid 2px white;
+      text-align: center;
+      span {
+        flex: 0 0 40px;
+        margin: auto;
+        height: 6px;
+        background: white;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        &:nth-child(2) {
+          top: 14px;
+        }
+        &:nth-child(3) {
+          top: 28px;
+        }
+      }
+    }
   }
 
   .sidenav a:hover, .offcanvas a:focus{
@@ -318,26 +343,29 @@ input {
       }
     }
     #sideBar {
-      flex: 0 0 340px;
-      overflow-y: hidden;
-      overflow-x: scroll;
-      height: 250px;
-      margin: 5px auto;
+      display: none;
+    //   flex: 0 0 340px;
+    //   overflow-y: hidden;
+    //   overflow-x: scroll;
+    //   height: 250px;
+    //   margin: 5px auto;
 
-      ul {
-        display: inline-block;
-        white-space: nowrap;
-        padding-left: 50px;
-        li {
-          display: inline-block;
-          width: 170px;
-          img {
-            max-width: 150px;
-            max-height: 200px;
-          }
-        }
-      }
+    //   ul {
+    //     display: inline-block;
+    //     white-space: nowrap;
+    //     padding-left: 50px;
+    //     li {
+    //       display: inline-block;
+    //       width: 170px;
+    //       img {
+    //         max-width: 150px;
+    //         max-height: 200px;
+    //       }
+    //     }
+    //   }
+
     }
+
   }
   #header {
     text-align: center;
@@ -379,4 +407,10 @@ input {
     }
   }
 
+  #editButton {
+    display: none;
+  }
+  #deleteButton {
+    display: none;
+  }
 }

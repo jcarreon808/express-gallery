@@ -26,7 +26,10 @@ mixin sideNav()
     a(href='/gallery/new') New
     a(href='/logout') Logout
   #menu
-    span(style="font-size:30px;cursor:pointer" onclick="openNav()") Menu
+    #menuBox(style="font-size:30px;cursor:pointer" onclick="openNav()")
+      span
+      span
+      span
   script.
     function openNav() {
     document.getElementById("mySidenav").style.width = "250px";

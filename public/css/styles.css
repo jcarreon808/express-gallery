@@ -223,8 +223,31 @@ input {
     transition: 0.3s; }
   #menu {
     flex: 0 0 100%;
-    text-align: center;
-    display: block; }
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 10px; }
+    #menu #menuBox {
+      flex: 0 0 50px;
+      height: 45px;
+      display: flex;
+      flex-flow: row wrap;
+      margin: 0;
+      border-radius: 5px;
+      border: solid 2px white;
+      text-align: center; }
+      #menu #menuBox span {
+        flex: 0 0 40px;
+        margin: auto;
+        height: 6px;
+        background: white;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0; }
+        #menu #menuBox span:nth-child(2) {
+          top: 14px; }
+        #menu #menuBox span:nth-child(3) {
+          top: 28px; }
   .sidenav a:hover, .offcanvas a:focus {
     color: #f1f1f1; }
   .sidenav .closebtn {
@@ -248,21 +271,7 @@ input {
         #container #picture #pic img {
           max-width: 300px; }
     #container #sideBar {
-      flex: 0 0 340px;
-      overflow-y: hidden;
-      overflow-x: scroll;
-      height: 250px;
-      margin: 5px auto; }
-      #container #sideBar ul {
-        display: inline-block;
-        white-space: nowrap;
-        padding-left: 50px; }
-        #container #sideBar ul li {
-          display: inline-block;
-          width: 170px; }
-          #container #sideBar ul li img {
-            max-width: 150px;
-            max-height: 200px; }
+      display: none; }
   #header {
     text-align: center;
     flex: 0 0 400px;
@@ -288,4 +297,8 @@ input {
     #editPhotoContainer #editBackground {
       margin: 3px auto; }
       #editPhotoContainer #editBackground img {
-        max-width: 200px; } }
+        max-width: 200px; }
+  #editButton {
+    display: none; }
+  #deleteButton {
+    display: none; } }
