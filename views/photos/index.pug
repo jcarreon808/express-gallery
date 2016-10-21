@@ -6,11 +6,11 @@ block title
 
 block body
   +sideNav()
-  div#featuredPicture
+  #featuredPicture
     h2 Latest Post
     -const route = '/gallery/' + one.id
     a(href=route)
       img(src=one.link)
-  div#picturesContainer
+  #picturesContainer
     h2 Photo Gallery
     +photoList(data,one)

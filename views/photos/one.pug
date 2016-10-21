@@ -6,19 +6,19 @@ block title
 
 block body
   +sideNav()
-  div#picture
-    div#pic
+  #picture
+    #pic
       p.details #{one.title} by #{one.author}
       img(src=one.link)
       p.details#description #{one.description}
     if one.userId == user
-      div#editButton
+      #editButton
         - const route = '/gallery/' + one.id + '/edit'
         a#editLink(href=route) Edit
-      div#deleteButton
+      #deleteButton
         - const deleteRoute = '/gallery/' + one.id + '/delete'
         a#editLink(href=deleteRoute) Delete
-  div#sideBar
+  #sideBar
     +sideBar(all,one)
 
 
