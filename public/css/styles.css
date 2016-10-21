@@ -156,7 +156,8 @@ button#send {
   background-color: rgba(30, 144, 255, 0.5);
   color: white; }
   button#send:hover {
-    box-shadow: 2px 2px 2px black; }
+    box-shadow: 2px 2px 2px black;
+    transition: 0.3s; }
 
 input {
   border-style: none; }

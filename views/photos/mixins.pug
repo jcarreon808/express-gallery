@@ -25,9 +25,9 @@ mixin sideNav(photo,userUserId)
       a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
       a(href='/') Home
       a(href='/gallery/new') New
-      a(href='/logout') Logout
       a(href='/gallery/' + photo.id + '/edit') Edit
       a(href='/gallery/' + photo.id + '/delete') Delete
+      a(href='/logout') Logout
     else
       a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
       a(href='/') Home
