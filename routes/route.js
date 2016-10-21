@@ -240,7 +240,7 @@ gallery.route('/create')
   .get((req,res)=>{
       res.render('./users/create');
     })
-  .post(validate.username, validate.newValidation, (req,res) => {
+  .post(validate.username, validate.password, validate.newValidation, (req,res) => {
     User.create({
       username: req.body.username,
       password: req.body.password,

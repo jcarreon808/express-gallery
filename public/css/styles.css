@@ -161,10 +161,12 @@ input {
 
 #editButton {
   margin-top: 20px;
+  margin-right: 20px;
   background-color: rgba(30, 144, 255, 0.5);
   width: 60px;
   padding: 5px;
   text-align: center;
+  display: inline-block;
   border-radius: 3px; }
   #editButton:hover {
     box-shadow: 2px 2px 2px black; }
@@ -177,8 +179,19 @@ input {
   width: 85px;
   padding: 5px;
   text-align: center;
+  display: inline-block;
   border-radius: 3px; }
   #deleteButton:hover {
     box-shadow: 2px 2px 2px black; }
   #deleteButton a {
     font-size: 30px; }
+
+#logout {
+  border-style: none;
+  background-color: white;
+  font-size: 25px;
+  font-family: 'Quattrocento Sans', sans-serif;
+  background-color: rgba(205, 133, 63, 0.4);
+  color: white; }
+  #logout:hover {
+    box-shadow: 2px 2px 2px black; }
