@@ -45,6 +45,7 @@ function newValidation(req,res,next) {
 }
 
 const authentication = (req, res, next) => {
+  console.log(req.user);
   if(!req.isAuthenticated()){
     res.redirect('/login');
   } else {
