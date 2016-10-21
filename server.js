@@ -58,6 +58,13 @@ app.use('/',route);
 
 app.listen(8080, function() {
   console.log('server started');
-  db.sequelize.sync();
+  db.sequelize.sync()
+  .catch(err =>{
+        res.json({
+          testing: 'here',
+          success: false,
+          error: err
+        });
+      });
 });
 

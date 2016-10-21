@@ -13,11 +13,9 @@ block body
       p.details#description #{one.description}
     if one.userId == user
       #editButton
-        - const route = '/gallery/' + one.id + '/edit'
-        a#editLink(href=route) Edit
+        a#editLink(href='/gallery/' + one.id + '/edit') Edit
       #deleteButton
-        - const deleteRoute = '/gallery/' + one.id + '/delete'
-        a#editLink(href=deleteRoute) Delete
+        a#editLink(href='/gallery/' + one.id + '/delete') Delete
   #sideBar
     +sideBar(all,one)
 
