@@ -1,0 +1,20 @@
+extends ../layout.pug
+include ./mixins.pug
+
+block title
+  title Message To User Page
+
+block body
+  +sideNav(0,0)
+  #form
+    #newPhoto
+      if deletePhoto
+        h3 Your photo has been deleted!
+        #send
+          a(href='/') Back
+      else if notOwner
+        h3.error You are not the owner of this Photo
+        #send
+          a(href='/gallery/' + notOwner) Back
+
+

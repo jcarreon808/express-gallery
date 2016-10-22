@@ -7,13 +7,20 @@ const validate = require('./middleware.js');
 const passport = require('passport');
 
 
+function flashError(msg,origin) {
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: origin,
+    failureFlash: msg
+  })
+}
+
 //homepage
 gallery.route('/')
   .get((req,res) => {
     Photo.findAll()
       .then(data =>{
         let one = data.slice(data.length-1)[0];
-        console.log(one);
         res.render('./photos/index',{
           data,
           one
@@ -31,11 +38,14 @@ gallery.route('/')
 //login page
 gallery.route('/login')
   .get((req,res)=>{
-    res.render('./users/login');
+    res.render('./users/login', {
+      msg: req.flash('error')[0]
+    });
   })
   .post(passport.authenticate('local',{
     successRedirect :'/',
     failureRedirect :'/login',
+    failureFlash: 'Invalid username or password'
   }));
 
 //new page
@@ -227,7 +237,9 @@ gallery.route('/gallery/:id/delete')
         data.destroy();
       })
       .then(done => {
-        res.render('./photos/delete');
+        res.render('./photos/message', {
+          deletePhoto: true
+        });
       })
       .catch(err =>{
         res.json({
@@ -239,7 +251,10 @@ gallery.route('/gallery/:id/delete')
 
 gallery.route('/register')
   .get((req,res)=>{
-      res.render('./users/register');
+    console.log('error message',req);
+      res.render('./users/register', {
+        error: req.registerError
+      });
     })
   .post(validate.password, validate.username, validate.newValidation, (req,res) => {
     User.create({
@@ -247,7 +262,7 @@ gallery.route('/register')
       password: req.body.password,
     })
     .then(done => {
-      res.render('./users/login');
+      res.render('./photos/index');
     })
     .catch(err =>{
       res.json({
@@ -262,5 +277,11 @@ gallery.route('/logout')
   req.logout();
   res.redirect('/login');
 });
+
+
+gallery.route('*')
+  .get((req,res) => {
+    res.render('./photos/404');
+  });
 
 module.exports = gallery;

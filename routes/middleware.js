@@ -75,12 +75,17 @@ function username(req,res,next) {
           });
         });
       } else {
-        res.json({
-          success: false,
-          error: "Username and Password must be at least 6 characters"
-        });
+        res.registerError = "Username and Password must be at least 6 characters"
+        //passport
+
+
+        res.redirect('/register')
       }
     } else {
+      req.registerError = "Username already in use"
+      //passport
+
+
       res.redirect('/register');
     }
   })
@@ -104,10 +109,9 @@ function owner(req,res,next) {
         if(photo.userId === user.id) {
           next();
         } else {
-          res.json({
-            success: false,
-            error: 'You are not the owner of this Photo'
-          })
+          res.render('./photos/message',{
+            notOwner: photo.id
+          });
         }
       })
       .catch(err => {
