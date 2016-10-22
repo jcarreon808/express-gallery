@@ -11,13 +11,18 @@ mixin photoList(data,one)
 
 mixin sideBar(all,one)
   ul
-    each photo in all
-      if photo.link != one.link
+    - for(var i = 0; i < 3; i++) {
+      if all[i].link != one.link
         li
-          - const route = '/gallery/' + photo.id
-          a(href=route)
-            img(src=photo.link)
-            p #{photo.title}
+          a(href='/gallery/' + all[i].id)
+            img(src=all[i].link)
+            p #{all[i].title}
+      else
+        li
+          a(href='/gallery/' + all[all.length-1].id)
+            img(src=all[all.length-1].link)
+            p #{all[all.length-1].title}
+    -}
 
 mixin sideNav(photo,userUserId)
   #mySidenav.sidenav

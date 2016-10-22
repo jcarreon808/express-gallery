@@ -67,8 +67,7 @@ body {
   #sideBar {
     margin-top: 25px;
     flex: 0 0 20%;
-    max-height: 700px;
-    overflow-y: scroll;
+    max-height: 600px;
     background: $opaque-brown;
     @include curvedEdges();
       ul {
@@ -289,8 +288,10 @@ input {
   #menu {
     flex: 0 0 100%;
     @include flexParent();
-    justify-content: center;
-    margin-bottom: 10px;
+    justify-content: flex-end;
+    margin-right: 60px;
+    margin-top: -10px;
+    margin-bottom: 20px;
     #menuBox {
       flex: 0 0 50px;
       height: 45px;
@@ -351,26 +352,6 @@ input {
     }
     #sideBar {
       display: none;
-    //   flex: 0 0 340px;
-    //   overflow-y: hidden;
-    //   overflow-x: scroll;
-    //   height: 250px;
-    //   margin: 5px auto;
-
-    //   ul {
-    //     display: inline-block;
-    //     white-space: nowrap;
-    //     padding-left: 50px;
-    //     li {
-    //       display: inline-block;
-    //       width: 170px;
-    //       img {
-    //         max-width: 150px;
-    //         max-height: 200px;
-    //       }
-    //     }
-    //   }
-
     }
 
   }
