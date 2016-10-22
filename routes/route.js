@@ -39,16 +39,21 @@ gallery.route('/login')
 //new page
 gallery.route('/gallery/new')
   .get(validate.authentication, (req,res) => {
-    res.render('./photos/new',{});
+    res.render('./photos/new',{
+      error: req.flash('error')
+    });
   })
   .post(validate.newValidation, (req,res) => {
-    Photo.create({
-      title: req.body.title,
-      author: req.body.author,
-      link: req.body.link,
-      description: req.body.description,
-      userId: req.user.id
-    })
+    if(req.body.errored) {
+      res.redirect('/gallery/new');
+    } else {
+      Photo.create({
+        title: req.body.title,
+        author: req.body.author,
+        link: req.body.link,
+        description: req.body.description,
+        userId: req.user.id
+      })
       .then(done => {
         Photo.findAll()
           .then(data =>{
@@ -71,6 +76,7 @@ gallery.route('/gallery/new')
           error: err
         });
       });
+    }
   });
 
 //postman
@@ -243,7 +249,7 @@ gallery.route('/register')
         error: req.flash('error')
       });
     })
-  .post(validate.password, validate.username, validate.newValidation, (req,res) => {
+  .post(validate.password, validate.username, (req,res) => {
     if (req.body.errored) {
       res.redirect('/register');
     } else {

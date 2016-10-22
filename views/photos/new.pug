@@ -9,6 +9,8 @@ block body
   #form
     #newPhoto
       h3 New Photo
+      for each in error
+        p.error #{each}
     #formSection
       form(method='post' action='#')
         p.field Title
