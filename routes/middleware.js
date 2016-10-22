@@ -69,7 +69,7 @@ function username(req,res,next) {
         })
       }
     } else {
-      res.redirect('/create');
+      res.redirect('/register');
     }
   })
   .catch(err => {
@@ -118,7 +118,7 @@ function password(req,res,next) {
   if (req.body.confirmPassword === req.body.password) {
     next();
   } else {
-    res.redirect('/create');
+    res.redirect('/register');
   }
 }
 

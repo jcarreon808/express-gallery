@@ -9,7 +9,7 @@ const passport = require('passport');
 
 //homepage
 gallery.route('/')
-  .get(validate.authentication, (req,res) => {
+  .get((req,res) => {
     Photo.findAll()
       .then(data =>{
         let one = data.slice(data.length-1)[0];
@@ -236,24 +236,24 @@ gallery.route('/gallery/:id/delete')
       });
   })
 
-gallery.route('/create')
+gallery.route('/register')
   .get((req,res)=>{
-      res.render('./users/create');
+      res.render('./users/register');
     })
   .post(validate.username, validate.password, validate.newValidation, (req,res) => {
     User.create({
       username: req.body.username,
       password: req.body.password,
     })
-      .then(done => {
-        res.render('./users/login');
-      })
-      .catch(err =>{
-        res.json({
-          success: false,
-          error: err
-        });
+    .then(done => {
+      res.render('./photos/index');
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
       });
+    });
   });
 
 gallery.route('/logout')

@@ -55,6 +55,14 @@ module.exports = {
         updatedAt: new Date(),
         description: 'woo',
         userId: 1
+      }, {
+        title: 'angry honu',
+        author: 'hawaiian islands',
+        link: 'http://www.abc.net.au/news/image/6780038-3x2-940x627.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        description: ':( no scroll bar',
+        userId: 2
       }], {});
 
   },
