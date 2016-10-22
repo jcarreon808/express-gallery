@@ -252,7 +252,7 @@ gallery.route('/register')
         password: req.body.password,
       })
       .then(done => {
-        res.render('./photos/index');
+        res.render('./users/login');
       })
       .catch(err =>{
         res.json({
