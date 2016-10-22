@@ -13,7 +13,6 @@ gallery.route('/')
     Photo.findAll()
       .then(data =>{
         let one = data.slice(data.length-1)[0];
-        console.log(one);
         res.render('./photos/index',{
           data,
           one
@@ -31,12 +30,11 @@ gallery.route('/')
 //login page
 gallery.route('/login')
   .get((req,res)=>{
-    res.render('./users/login');
+    res.render('./users/login', {
+      msg: req.flash('error')[0]
+    });
   })
-  .post(passport.authenticate('local',{
-    successRedirect :'/',
-    failureRedirect :'/login',
-  }));
+  .post(validate.flashError('Invalid login','/login'));
 
 //new page
 gallery.route('/gallery/new')
@@ -227,7 +225,9 @@ gallery.route('/gallery/:id/delete')
         data.destroy();
       })
       .then(done => {
-        res.render('./photos/delete');
+        res.render('./photos/message', {
+          deletePhoto: true
+        });
       })
       .catch(err =>{
         res.json({
@@ -239,22 +239,28 @@ gallery.route('/gallery/:id/delete')
 
 gallery.route('/register')
   .get((req,res)=>{
-      res.render('./users/register');
+      res.render('./users/register', {
+        error: req.flash('error')
+      });
     })
   .post(validate.password, validate.username, validate.newValidation, (req,res) => {
-    User.create({
-      username: req.body.username,
-      password: req.body.password,
-    })
-    .then(done => {
-      res.render('./users/login');
-    })
-    .catch(err =>{
-      res.json({
-        success: false,
-        error: err
+    if (req.body.errored) {
+      res.redirect('/register');
+    } else {
+      User.create({
+        username: req.body.username,
+        password: req.body.password,
+      })
+      .then(done => {
+        res.render('./photos/index');
+      })
+      .catch(err =>{
+        res.json({
+          success: false,
+          error: err
+        });
       });
-    });
+    }
   });
 
 gallery.route('/logout')
@@ -262,5 +268,11 @@ gallery.route('/logout')
   req.logout();
   res.redirect('/login');
 });
+
+
+gallery.route('*')
+  .get((req,res) => {
+    res.render('./photos/404');
+  });
 
 module.exports = gallery;

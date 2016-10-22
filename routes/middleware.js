@@ -1,6 +1,8 @@
 const Photo = require('../models').Photo;
 const User = require('../models').User;
 const bcrypt =  require('bcrypt');
+const passport = require('passport');
+
 
 function editValidation(req, res, next) {
   Photo.findById(req.params.id)
@@ -75,13 +77,14 @@ function username(req,res,next) {
           });
         });
       } else {
-        res.json({
-          success: false,
-          error: "Username and Password must be at least 6 characters"
-        });
+        req.flash('error', 'Username and password must be at least 6 characters')
+        req.body.errored = true;
+        next();
       }
     } else {
-      res.redirect('/register');
+      req.flash('error','Username is already in use')
+      req.body.errored = true;
+      next();
     }
   })
   .catch(err => {
@@ -104,10 +107,9 @@ function owner(req,res,next) {
         if(photo.userId === user.id) {
           next();
         } else {
-          res.json({
-            success: false,
-            error: 'You are not the owner of this Photo'
-          })
+          res.render('./photos/message',{
+            notOwner: photo.id
+          });
         }
       })
       .catch(err => {
@@ -129,8 +131,18 @@ function password(req,res,next) {
   if (req.body.confirmPassword === req.body.password) {
     next();
   } else {
-    res.redirect('/register');
+    req.flash('error','passwords do not match')
+    req.body.errored = true;
+    next();
   }
+}
+
+function flashError(msg,origin) {
+  return passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: origin,
+    failureFlash: msg
+  })
 }
 
 module.exports = {
@@ -139,5 +151,6 @@ module.exports = {
   authentication,
   username,
   owner,
-  password
+  password,
+  flashError
 }
