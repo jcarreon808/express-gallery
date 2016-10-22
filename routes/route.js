@@ -13,6 +13,7 @@ gallery.route('/')
     Photo.findAll()
       .then(data =>{
         let one = data.slice(data.length-1)[0];
+        console.log(one);
         res.render('./photos/index',{
           data,
           one
@@ -240,13 +241,13 @@ gallery.route('/register')
   .get((req,res)=>{
       res.render('./users/register');
     })
-  .post(validate.username, validate.password, validate.newValidation, (req,res) => {
+  .post(validate.password, validate.username, validate.newValidation, (req,res) => {
     User.create({
       username: req.body.username,
       password: req.body.password,
     })
     .then(done => {
-      res.render('./photos/index');
+      res.render('./users/login');
     })
     .catch(err =>{
       res.json({

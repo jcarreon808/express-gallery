@@ -8,6 +8,8 @@ const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const db = require('./models');
 const config = require('./config/config.json');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('./public'));
@@ -27,23 +29,24 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy ((username, password, done)=>{
-  db.User.findOne({
-    where: {
-      username
-    }
-  })
-  .then((user)=>{
-    if(user === null) {
-      return done(null,false);
-    } else {
-      const isAuthenticated =(username === user.username && password === user.password);
-      if(!isAuthenticated){
-        return done(null, false);
-      } else {
-        return done(null, user);
-      }
-    }
-  });
+      db.User.findOne({
+        where: {
+          username
+        }
+      })
+      .then((user)=>{
+        if(user === null) {
+          return done(null,false);
+        } else {
+          bcrypt.compare(password,user.password,(err,result)=>{
+            if(!result){
+              return done(null, false);
+            } else {
+              return done(null, user);
+            }
+          });
+        }
+      });
 }));
 
 passport.serializeUser((user, done)=> {

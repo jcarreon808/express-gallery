@@ -1,5 +1,6 @@
 const Photo = require('../models').Photo;
 const User = require('../models').User;
+const bcrypt =  require('bcrypt');
 
 function editValidation(req, res, next) {
   Photo.findById(req.params.id)
@@ -61,12 +62,23 @@ function username(req,res,next) {
   .then(user => {
     if (user === null) {
       if (req.body.username.length > 5 && req.body.password.length > 5) {
-        next();
+        bcrypt.genSalt((err,salt)=>{
+          if(err){
+            console.error(err);
+          }
+          bcrypt.hash(req.body.password, salt, (err,hash)=>{
+            if(err){
+              console.error(err);
+            }
+            req.body.password = hash;
+            next();
+          });
+        });
       } else {
         res.json({
           success: false,
           error: "Username and Password must be at least 6 characters"
-        })
+        });
       }
     } else {
       res.redirect('/register');
@@ -77,7 +89,7 @@ function username(req,res,next) {
       success: false,
       error: err
     });
-  })
+  });
 }
 
 function owner(req,res,next) {
@@ -87,7 +99,6 @@ function owner(req,res,next) {
     }
   })
   .then(user => {
-    console.log('req user',req.user);
     Photo.findById(req.params.id)
       .then(photo => {
         if(photo.userId === user.id) {
