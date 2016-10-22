@@ -2,7 +2,15 @@ $brownish: #CD853F;
 $opaque-brown: rgba(205, 133, 63, 0.4);
 $shadow: rgba(0,0,0,.5);
 $light-blue: rgba(30,144,255,.5);
+$background-picture: "../photos/sandybeach.jpg";
+$text-color: white;
 
+
+@mixin textStyle($size) {
+  color: white;
+  text-shadow: 1px 1px 3px $shadow;
+  font-size: $size;
+}
 
 @mixin flexParent() {
   display: flex;
@@ -13,12 +21,16 @@ $light-blue: rgba(30,144,255,.5);
   border-radius: 3px;
 }
 
+@mixin sidePictureSize() {
+  max-height: 300px;
+  max-width: 300px;
+}
 
 body {
-  background: url("../photos/sandybeach.jpg");
+  background: url($background-picture);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: white;
+  color: $text-color;
   font-family: 'Quattrocento Sans', sans-serif;
   text-shadow: 1px 1px 3px $shadow;
   font-size: 20px;
@@ -155,7 +167,7 @@ body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: $text-color;
 }
 
 nav {
@@ -194,11 +206,11 @@ button#send {
   display: block;
   margin: 10px auto;
   border-style: none;
-  background-color: white;
+  background-color: $text-color;
   font-size: 20px;
   font-family: 'Quattrocento Sans', sans-serif;
   background-color: $light-blue;
-  color: white;
+  color: $text-color;
   &:hover {
     box-shadow: 2px 2px 2px black;
     transition: 0.3s;
@@ -244,11 +256,11 @@ input {
 
 #logout {
   border-style: none;
-  background-color: white;
+  background-color: $text-color;
   font-size: 25px;
   font-family: 'Quattrocento Sans', sans-serif;
   background-color: $opaque-brown;
-  color: white;
+  color: $text-color;
   &:hover {
     box-shadow: 2px 2px 2px black;
   }
@@ -298,7 +310,7 @@ input {
       @include flexParent();
       margin: 0;
       border-radius: 5px;
-      border: solid 2px white;
+      border: solid 2px $text-color;
       text-align: center;
       &:hover {
         background-color: $light-blue;
@@ -308,7 +320,7 @@ input {
         flex: 0 0 40px;
         margin: auto;
         height: 6px;
-        background: white;
+        background: $text-color;
         border-radius: 9px;
         opacity: 1;
         left: 0;
