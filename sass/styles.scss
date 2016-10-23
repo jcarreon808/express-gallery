@@ -81,20 +81,18 @@ body {
 #sideBar {
   margin-top: 25px;
   flex: 0 0 20%;
-  max-height: 600px;
-  background: $opaque-brown;
   @include curvedEdges();
-    ul {
-    margin-left: -40px;
+  ul {
+    background: $opaque-brown;
     @include flexParent();
     justify-content: center;
     li {
-      flex: 0 0 80%;
+      flex: 0 0 100%;
       list-style: none;
-      margin-top: 30px;
+      // margin: 8px 0 8px -10px;
       img {
         @include curvedEdges();
-        max-width: 100%;
+        width: 150px;
       }
     }
   }
