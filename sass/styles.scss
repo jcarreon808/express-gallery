@@ -81,15 +81,15 @@ body {
 #sideBar {
   margin-top: 25px;
   flex: 0 0 20%;
+  display: table;
   @include curvedEdges();
   ul {
     background: $opaque-brown;
-    @include flexParent();
-    justify-content: center;
+    margin: 0;
+    padding: 30px;
     li {
-      flex: 0 0 100%;
+      display: inline;
       list-style: none;
-      // margin: 8px 0 8px -10px;
       img {
         @include curvedEdges();
         width: 150px;
@@ -136,27 +136,32 @@ body {
 }
 
 
-#form {
-  justify-content: center;
+#newForm {
   background-color: $opaque-brown;
+  @include curvedEdges();
   flex: 0 0 250px;
-  #newPhoto {
-    text-align: center;
-  }
-  #formSection {
-    text-align: center;
+  @include flexParent();
+  justify-content: flex-start;
+  #form {
+    flex: 0 0 250px;
+    #newPhoto {
+      text-align: center;
+    }
+    #formSection {
+      text-align: center;
+    }
   }
 }
 
 #editPhotoContainer {
   flex: 0 0 50%;
-  text-align: center;
   margin-right: 20px;
   #editBackground {
     background-color: $opaque-brown;
+    @include curvedEdges();
     padding: 20px;
     img {
-      max-width: 500px;
+      width: 580px;
     }
   }
 }
