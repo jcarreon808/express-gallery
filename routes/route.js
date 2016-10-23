@@ -1,4 +1,4 @@
-const express = require('express');
+ const express = require('express');
 const pug = require('pug');
 const gallery = express.Router();
 const Photo = require('../models').Photo;
@@ -13,6 +13,7 @@ gallery.route('/')
     Photo.findAll()
       .then(data =>{
         let one = data.slice(data.length-1)[0];
+        console.log(one);
         res.render('./photos/index',{
           data,
           one
@@ -30,11 +31,12 @@ gallery.route('/')
 //login page
 gallery.route('/login')
   .get((req,res)=>{
-    res.render('./users/login', {
-      msg: req.flash('error')[0]
-    });
+    res.render('./users/login');
   })
-  .post(validate.flashError('Invalid login','/login'));
+  .post(passport.authenticate('local',{
+    successRedirect :'/',
+    failureRedirect :'/login',
+  }));
 
 //new page
 gallery.route('/gallery/new')
@@ -225,9 +227,7 @@ gallery.route('/gallery/:id/delete')
         data.destroy();
       })
       .then(done => {
-        res.render('./photos/message', {
-          deletePhoto: true
-        });
+        res.render('./photos/delete');
       })
       .catch(err =>{
         res.json({
@@ -239,28 +239,22 @@ gallery.route('/gallery/:id/delete')
 
 gallery.route('/register')
   .get((req,res)=>{
-      res.render('./users/register', {
-        error: req.flash('error')
-      });
+      res.render('./users/register');
     })
   .post(validate.password, validate.username, validate.newValidation, (req,res) => {
-    if (req.body.errored) {
-      res.redirect('/register');
-    } else {
-      User.create({
-        username: req.body.username,
-        password: req.body.password,
-      })
-      .then(done => {
-        res.render('./users/login');
-      })
-      .catch(err =>{
-        res.json({
-          success: false,
-          error: err
-        });
+    User.create({
+      username: req.body.username,
+      password: req.body.password,
+    })
+    .then(done => {
+      res.render('./users/login');
+    })
+    .catch(err =>{
+      res.json({
+        success: false,
+        error: err
       });
-    }
+    });
   });
 
 gallery.route('/logout')
@@ -268,11 +262,5 @@ gallery.route('/logout')
   req.logout();
   res.redirect('/login');
 });
-
-
-gallery.route('*')
-  .get((req,res) => {
-    res.render('./photos/404');
-  });
 
 module.exports = gallery;
