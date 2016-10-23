@@ -38,10 +38,9 @@ function newValidation(req,res,next) {
     req.body.author === '' ||
     req.body.link === '' ||
     req.body.description === '') {
-      res.json({
-        success: false,
-        error: '400 - Bad Request: Please enter text in all fields'
-      })
+      req.flash('error','Please fill out all fields')
+      req.body.errored = true;
+      next();
   } else {
     next();
   }

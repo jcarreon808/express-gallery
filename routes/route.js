@@ -41,16 +41,21 @@ gallery.route('/login')
 //new page
 gallery.route('/gallery/new')
   .get(validate.authentication, (req,res) => {
-    res.render('./photos/new',{});
+    res.render('./photos/new',{
+      error: req.flash('error')
+    });
   })
   .post(validate.newValidation, (req,res) => {
-    Photo.create({
-      title: req.body.title,
-      author: req.body.author,
-      link: req.body.link,
-      description: req.body.description,
-      userId: req.user.id
-    })
+    if(req.body.errored) {
+      res.redirect('/gallery/new');
+    } else {
+      Photo.create({
+        title: req.body.title,
+        author: req.body.author,
+        link: req.body.link,
+        description: req.body.description,
+        userId: req.user.id
+      })
       .then(done => {
         Photo.findAll()
           .then(data =>{
@@ -73,6 +78,7 @@ gallery.route('/gallery/new')
           error: err
         });
       });
+    }
   });
 
 //postman
@@ -241,20 +247,24 @@ gallery.route('/register')
   .get((req,res)=>{
       res.render('./users/register');
     })
-  .post(validate.password, validate.username, validate.newValidation, (req,res) => {
-    User.create({
-      username: req.body.username,
-      password: req.body.password,
-    })
-    .then(done => {
-      res.render('./users/login');
-    })
-    .catch(err =>{
-      res.json({
-        success: false,
-        error: err
+  .post(validate.password, validate.username, (req,res) => {
+    if (req.body.errored) {
+      res.redirect('/register');
+    } else {
+      User.create({
+        username: req.body.username,
+        password: req.body.password,
+      })
+      .then(done => {
+        res.render('./users/login');
+      })
+      .catch(err =>{
+        res.json({
+          success: false,
+          error: err
+        });
       });
-    });
+    };
   });
 
 gallery.route('/logout')
