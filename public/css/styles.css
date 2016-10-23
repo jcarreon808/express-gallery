@@ -10,56 +10,58 @@ body {
 #header {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex: 0 0 100%;
-  margin-left: 250px;
-  justify-content: space-around;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  padding-top: 20px; }
   #header h1 {
-    margin-left: -200px;
     flex: 0 0 200px;
     font-family: 'Work Sans';
-    font-size: 50px; }
+    font-size: 50px;
+    margin: 0 auto; }
   #header p {
-    padding-top: 30px;
     flex: 0 0 400px;
-    font-size: 15px; }
+    font-size: 15px;
+    margin: 0 auto; }
 
 #container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   width: 960px;
+  overflow: hidden;
   margin: 0 auto; }
-  #container #picture {
-    flex: 0 0 40%;
-    margin-top: 23px;
-    margin-right: 20px; }
-    #container #picture #pic {
-      border-radius: 3px;
-      padding: 20px;
-      background: rgba(205, 133, 63, 0.4); }
-      #container #picture #pic img {
-        max-width: 700px;
-        border-radius: 3px; }
-  #container #sideBar {
-    margin-top: 25px;
-    flex: 0 0 20%;
-    max-height: 600px;
-    background: rgba(205, 133, 63, 0.4);
-    border-radius: 3px; }
-    #container #sideBar ul {
-      margin-left: -40px;
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center; }
-      #container #sideBar ul li {
-        flex: 0 0 80%;
-        list-style: none;
-        margin-top: 30px; }
-        #container #sideBar ul li img {
-          border-radius: 3px;
-          max-width: 100%; }
+
+#picture {
+  flex: 0 0 40%;
+  margin-top: 23px;
+  margin-right: 20px; }
+  #picture #pic {
+    border-radius: 3px;
+    padding: 20px;
+    background: rgba(205, 133, 63, 0.4); }
+    #picture #pic img {
+      width: 640px;
+      border-radius: 3px; }
+
+#sideBar {
+  margin-top: 25px;
+  flex: 0 0 20%;
+  max-height: 600px;
+  background: rgba(205, 133, 63, 0.4);
+  border-radius: 3px; }
+  #sideBar ul {
+    margin-left: -40px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
+    #sideBar ul li {
+      flex: 0 0 80%;
+      list-style: none;
+      margin-top: 30px; }
+      #sideBar ul li img {
+        border-radius: 3px;
+        max-width: 100%; }
 
 #picturesContainer {
   text-align: center;
@@ -76,20 +78,22 @@ body {
     margin-left: -40px;
     list-style: none; }
     #picturesContainer ul li {
-      flex: 0 0 220px; }
+      flex: 0 0 220px;
+      margin: 3px auto; }
       #picturesContainer ul li img {
         border-radius: 3px;
-        max-width: 200px; }
+        width: 280px;
+        height: 200px; }
 
 #featuredPicture {
   flex: 0 0 850px;
   text-align: center;
   background-color: rgba(205, 133, 63, 0.4);
-  padding: 20px;
+  padding: 15px;
   border-radius: 3px; }
   #featuredPicture img {
     border-radius: 3px;
-    max-width: 800px; }
+    width: 860px; }
 
 #form {
   justify-content: center;
@@ -122,19 +126,13 @@ nav {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  margin-left: 200px;
-  margin-bottom: 20px; }
-  nav #home {
+  margin-bottom: 20px;
+  margin-left: 70px; }
+  nav .navButton {
     flex: 0 0 50px;
     background: rgba(205, 133, 63, 0.4);
     padding: 10px 20px;
     margin-right: 20px;
-    text-align: center;
-    border-radius: 3px; }
-  nav #new {
-    flex: 0 0 50px;
-    background: rgba(205, 133, 63, 0.4);
-    padding: 10px 20px;
     text-align: center;
     border-radius: 3px; }
 
@@ -187,16 +185,6 @@ input {
     box-shadow: 2px 2px 2px black; }
   #deleteButton a {
     font-size: 30px; }
-
-#logout {
-  border-style: none;
-  background-color: white;
-  font-size: 25px;
-  font-family: 'Quattrocento Sans', sans-serif;
-  background-color: rgba(205, 133, 63, 0.4);
-  color: white; }
-  #logout:hover {
-    box-shadow: 2px 2px 2px black; }
 
 .sidenav a {
   display: none; }

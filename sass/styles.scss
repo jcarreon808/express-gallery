@@ -38,21 +38,20 @@ body {
 
 #header {
   @include flexParent();
-  justify-content:space-around;
+  justify-content:flex-start;
   flex: 0 0 100%;
-  margin-left: 250px;
-  justify-content: space-around;
   margin-bottom: 50px;
+  padding-top: 20px;
   h1 {
-    margin-left: -200px;
     flex: 0 0 200px;
     font-family: 'Work Sans';
     font-size: 50px;
+    margin: 0 auto;
   }
   p {
-    padding-top: 30px;
     flex: 0 0 400px;
     font-size: 15px;
+    margin: 0 auto;
   }
 }
 
@@ -60,45 +59,46 @@ body {
   @include flexParent();
   justify-content: center;
   width: 960px;
+  overflow: hidden;
   margin: 0 auto;
+}
 
-  #picture {
-    flex: 0 0 40%;
-    margin-top: 23px;
-    margin-right: 20px;
-    #pic {
+// one pug page
+#picture {
+  flex: 0 0 40%;
+  margin-top: 23px;
+  margin-right: 20px;
+  #pic {
+    @include curvedEdges();
+    padding: 20px;
+    background: $opaque-brown;
+    img{
+      width: 640px;
       @include curvedEdges();
-      padding: 20px;
-      background: $opaque-brown;
-      img{
-        max-width: 700px;
-        @include curvedEdges();
-      }
     }
   }
-  #sideBar {
-    margin-top: 25px;
-    flex: 0 0 20%;
-    max-height: 600px;
-    background: $opaque-brown;
-    @include curvedEdges();
-      ul {
-      margin-left: -40px;
-      @include flexParent();
-      justify-content: center;
-      li {
-        flex: 0 0 80%;
-        list-style: none;
-        margin-top: 30px;
-        img {
-          @include curvedEdges();
-          max-width: 100%;
-        }
+}
+#sideBar {
+  margin-top: 25px;
+  flex: 0 0 20%;
+  max-height: 600px;
+  background: $opaque-brown;
+  @include curvedEdges();
+    ul {
+    margin-left: -40px;
+    @include flexParent();
+    justify-content: center;
+    li {
+      flex: 0 0 80%;
+      list-style: none;
+      margin-top: 30px;
+      img {
+        @include curvedEdges();
+        max-width: 100%;
       }
     }
   }
 }
-
 
 #picturesContainer {
   text-align: center;
@@ -115,9 +115,11 @@ body {
     list-style: none;
     li{
       flex: 0 0 220px;
+      margin: 3px auto;
       img{
         @include curvedEdges();
-        max-width: 200px;
+        width: 280px;
+        height: 200px;
       }
     }
   }
@@ -127,11 +129,11 @@ body {
   flex: 0 0 850px;
   text-align: center;
   background-color: $opaque-brown;
-  padding: 20px;
+  padding: 15px;
   @include curvedEdges();
   img{
     @include curvedEdges();
-    max-width: 800px;
+    width: 860px;
   }
 }
 
@@ -174,20 +176,13 @@ nav {
   flex: 0 0 100%;
   @include flexParent();
   justify-content: flex-start;
-  margin-left: 200px;
   margin-bottom: 20px;
-  #home {
+  margin-left: 70px;
+  .navButton {
     flex: 0 0 50px;
     background: $opaque-brown;
     padding: 10px 20px;
     margin-right: 20px;
-    text-align: center;
-    @include curvedEdges();
-  }
-  #new {
-    flex: 0 0 50px;
-    background: $opaque-brown;
-    padding: 10px 20px;
     text-align: center;
     @include curvedEdges();
   }
@@ -254,17 +249,6 @@ input {
   }
 }
 
-#logout {
-  border-style: none;
-  background-color: $text-color;
-  font-size: 25px;
-  font-family: 'Quattrocento Sans', sans-serif;
-  background-color: $opaque-brown;
-  color: $text-color;
-  &:hover {
-    box-shadow: 2px 2px 2px black;
-  }
-}
 
 .sidenav a {
   display: none;

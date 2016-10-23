@@ -11,11 +11,11 @@ html(lang="en")
       #header
         h1 _ARCHITEKT
         p#welcomeNote Welcome to our online portfolio, we are a small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme
-        a(href="/logout")
-          button#logout Logout
       nav
-        #home
+        #home.navButton
           a(href='/') Home
-        #new
+        #new.navButton
           a(href='/gallery/new') New
+        #logout.navButton
+          a(href="/logout") Logout
       block body
