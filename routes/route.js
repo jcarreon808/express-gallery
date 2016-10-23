@@ -158,8 +158,7 @@ gallery.route('/gallery/:id/edit')
         });
       });
   });
-
-//one page (detail page)
+  //one page (detail page)
 gallery.route('/gallery/:id')
   .get(validate.authentication,(req,res) => {
     Photo.findAll()
