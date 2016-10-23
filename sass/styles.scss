@@ -136,20 +136,16 @@ body {
 }
 
 
-#newForm {
+#form {
+  justify-content: center;
   background-color: $opaque-brown;
   @include curvedEdges();
   flex: 0 0 250px;
-  @include flexParent();
-  justify-content: flex-start;
-  #form {
-    flex: 0 0 250px;
-    #newPhoto {
-      text-align: center;
-    }
-    #formSection {
-      text-align: center;
-    }
+  #newPhoto {
+    text-align: center;
+  }
+  #formSection {
+    text-align: center;
   }
 }
 
@@ -264,7 +260,6 @@ input {
 .error {
   color: red;
 }
-
 
 @media screen and (max-width: 480px) {
 
@@ -406,15 +401,15 @@ input {
     display: none;
   }
   #picturesContainer{
-   ul{
-    li{
-      a{
-        img{
-          width:300px;
+    ul{
+      li{
+        a{
+          img{
+            width:300px;
+          }
         }
       }
     }
-   }
   }
   form{
     width:320px;

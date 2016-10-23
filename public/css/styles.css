@@ -92,19 +92,15 @@ body {
     border-radius: 3px;
     width: 860px; }
 
-#newForm {
+#form {
+  justify-content: center;
   background-color: rgba(205, 133, 63, 0.4);
   border-radius: 3px;
-  flex: 0 0 250px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start; }
-  #newForm #form {
-    flex: 0 0 250px; }
-    #newForm #form #newPhoto {
-      text-align: center; }
-    #newForm #form #formSection {
-      text-align: center; }
+  flex: 0 0 250px; }
+  #form #newPhoto {
+    text-align: center; }
+  #form #formSection {
+    text-align: center; }
 
 #editPhotoContainer {
   flex: 0 0 50%;

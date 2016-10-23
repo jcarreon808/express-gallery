@@ -6,20 +6,19 @@ block title
 
 block body
   +sideNav(0,0)
-  #newForm
-    #form
-      #newPhoto
-        h3 New Photo
-        for each in error
-          p.error #{each}
-      #formSection
-        form(method='post' action='#')
-          p.field Title
-          textarea(name='title' row='1')
-          p.field Author
-          textarea(name ='author' row='1')
-          p.field Link
-          textarea(name ='link' row= '2')
-          p.field Description
-          textarea(name="description" row='30')
-          button#send Enter
+  #form
+    #newPhoto
+      h3 New Photo
+      for each in error
+        p.error #{each}
+    #formSection
+      form(method='post' action='#')
+        p.field Title
+        textarea(name='title' row='1')
+        p.field Author
+        textarea(name ='author' row='1')
+        p.field Link
+        textarea(name ='link' row= '2')
+        p.field Description
+        textarea(name="description" row='30')
+        button#send Enter
