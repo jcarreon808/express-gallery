@@ -191,7 +191,124 @@ input {
   display: none; }
 
 .error {
-  color: red; }
+  color: #BE2625;
+  padding: 3px; }
+
+@media screen and (max-width: 968px) {
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px; }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; }
+  #menu {
+    flex: 0 0 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-right: 0px;
+    margin-top: -10px;
+    margin-bottom: 20px; }
+    #menu #menuBox {
+      flex: 0 0 50px;
+      height: 45px;
+      display: flex;
+      flex-flow: row wrap;
+      margin: 0;
+      border-radius: 5px;
+      border: solid 2px white;
+      text-align: center; }
+      #menu #menuBox:hover {
+        background-color: rgba(30, 144, 255, 0.5);
+        transition: 0.3s; }
+      #menu #menuBox span {
+        flex: 0 0 40px;
+        margin: auto;
+        height: 6px;
+        background: white;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0; }
+        #menu #menuBox span:nth-child(2) {
+          top: 14px; }
+        #menu #menuBox span:nth-child(3) {
+          top: 28px; }
+  .sidenav a:hover, .offcanvas a:focus {
+    color: #f1f1f1; }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px; }
+  #container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%; }
+    #container #picture {
+      flex: 0 0 90%;
+      text-align: center; }
+      #container #picture #pic {
+        width: 100%;
+        text-align: left; }
+        #container #picture #pic img {
+          width: 100%; }
+  nav {
+    display: none; }
+  #sideBar {
+    display: none; }
+  #header {
+    text-align: center;
+    flex: 0 0 100%;
+    margin-bottom: 20px; }
+    #header h1 {
+      font-family: 'Work Sans';
+      font-size: 50px; }
+    #header p {
+      display: none; }
+    #header #logout {
+      margin-right: 250px; }
+    #header a {
+      display: none; }
+  #featuredPicture {
+    flex: 0 0 90%; }
+    #featuredPicture img {
+      width: 100%; }
+  #editPhotoContainer {
+    margin: 5px auto; }
+    #editPhotoContainer #editBackground {
+      margin: 3px auto; }
+      #editPhotoContainer #editBackground img {
+        width: 600px; }
+  #editButton {
+    display: none; }
+  #deleteButton {
+    display: none; }
+  #picturesContainer {
+    flex: 0 0 90%; }
+    #picturesContainer ul li {
+      flex: 0 0 45%;
+      padding: 5px; }
+      #picturesContainer ul li a img {
+        width: 100%; }
+  form {
+    width: 320px; }
+    form textarea {
+      font-size: 20px;
+      width: 200px; } }
 
 @media screen and (max-width: 480px) {
   .sidenav {
@@ -259,15 +376,15 @@ input {
     width: 320px;
     margin: 0 auto; }
     #container #picture {
-      max-width: 340px;
+      flex: 0 0 340px;
       margin: 2px auto;
       text-align: center; }
       #container #picture #pic {
         text-align: left; }
         #container #picture #pic img {
           max-width: 300px; }
-    #container #sideBar {
-      display: none; }
+  #sideBar {
+    display: none; }
   #header {
     text-align: center;
     flex: 0 0 400px;

@@ -1,16 +1,10 @@
-$brownish: #CD853F;
 $opaque-brown: rgba(205, 133, 63, 0.4);
 $shadow: rgba(0,0,0,.5);
 $light-blue: rgba(30,144,255,.5);
 $background-picture: "../photos/sandybeach.jpg";
 $text-color: white;
+$strawberry: #BE2625;
 
-
-@mixin textStyle($size) {
-  color: white;
-  text-shadow: 1px 1px 3px $shadow;
-  font-size: $size;
-}
 
 @mixin flexParent() {
   display: flex;
@@ -21,10 +15,6 @@ $text-color: white;
   border-radius: 3px;
 }
 
-@mixin sidePictureSize() {
-  max-height: 300px;
-  max-width: 300px;
-}
 
 body {
   background: url($background-picture);
@@ -258,8 +248,169 @@ input {
 }
 
 .error {
-  color: red;
+  color: $strawberry;
+  padding: 3px;
 }
+
+@media screen and (max-width: 968px) {
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  #menu {
+    flex: 0 0 100%;
+    @include flexParent();
+    justify-content: center;
+    margin-right:0px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    #menuBox {
+      flex: 0 0 50px;
+      height: 45px;
+      @include flexParent();
+      margin: 0;
+      border-radius: 5px;
+      border: solid 2px $text-color;
+      text-align: center;
+      &:hover {
+        background-color: $light-blue;
+        transition: 0.3s;
+      }
+      span {
+        flex: 0 0 40px;
+        margin: auto;
+        height: 6px;
+        background: $text-color;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        &:nth-child(2) {
+          top: 14px;
+        }
+        &:nth-child(3) {
+          top: 28px;
+        }
+      }
+    }
+  }
+
+  .sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  #container {
+    @include flexParent();
+    justify-content: center;
+    width: 100%;
+
+    #picture {
+      flex: 0 0 90%;
+      text-align: center;
+      #pic {
+        width: 100%;
+        text-align: left;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  nav {
+    display: none;
+  }
+  #sideBar {
+    display: none;
+  }
+  #header {
+    text-align: center;
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+    h1 {
+      font-family: 'Work Sans';
+      font-size: 50px;
+    }
+    p {
+      display: none;
+    }
+    #logout {
+      margin-right: 250px;
+    }
+    a {
+      display: none;
+    }
+
+  }
+
+  #featuredPicture {
+    flex: 0 0 90%;
+    img {
+      width: 100%;
+    }
+  }
+  #editPhotoContainer {
+    margin: 5px auto;
+    #editBackground {
+      margin: 3px auto;
+      img {
+        width: 600px;
+      }
+    }
+  }
+
+  #editButton {
+    display: none;
+  }
+  #deleteButton {
+    display: none;
+  }
+  #picturesContainer{
+    flex: 0 0 90%;
+    ul{
+      li{
+        flex: 0 0 45%;
+        padding: 5px;
+        a{
+          img{
+            width:100%;
+          }
+        }
+      }
+    }
+  }
+  form{
+    width:320px;
+    textarea{
+      font-size:20px;
+      width:200px;
+    }
+  }
+}
+
 
 @media screen and (max-width: 480px) {
 
@@ -339,7 +490,7 @@ input {
     width: 320px;
     margin: 0 auto;
     #picture {
-      max-width: 340px;
+      flex: 0 0 340px;
       margin: 2px auto;
       text-align: center;
       #pic {
@@ -349,10 +500,9 @@ input {
         }
       }
     }
-    #sideBar {
-      display: none;
-    }
-
+  }
+  #sideBar {
+    display: none;
   }
   #header {
     text-align: center;
