@@ -47,21 +47,18 @@ body {
 #sideBar {
   margin-top: 25px;
   flex: 0 0 20%;
-  max-height: 600px;
-  background: rgba(205, 133, 63, 0.4);
   border-radius: 3px; }
   #sideBar ul {
-    margin-left: -40px;
+    background: rgba(205, 133, 63, 0.4);
     display: flex;
     flex-flow: row wrap;
     justify-content: center; }
     #sideBar ul li {
-      flex: 0 0 80%;
-      list-style: none;
-      margin-top: 30px; }
+      flex: 0 0 100%;
+      list-style: none; }
       #sideBar ul li img {
         border-radius: 3px;
-        max-width: 100%; }
+        width: 150px; }
 
 #picturesContainer {
   text-align: center;
