@@ -221,7 +221,7 @@ input {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
-    margin-right: 60px;
+    margin-right: 0px;
     margin-top: -10px;
     margin-bottom: 20px; }
     #menu #menuBox {
@@ -260,7 +260,7 @@ input {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 400px;
+    width: 320px;
     margin: 0 auto; }
     #container #picture {
       max-width: 340px;
@@ -275,7 +275,7 @@ input {
   #header {
     text-align: center;
     flex: 0 0 400px;
-    margin-bottom: 0; }
+    margin-bottom: 20px; }
     #header h1 {
       margin-right: 40px;
       font-family: 'Work Sans';
@@ -289,16 +289,23 @@ input {
   nav {
     display: none; }
   #featuredPicture {
-    max-width: 340px; }
+    max-width: 370px; }
     #featuredPicture img {
-      max-width: 300px; }
+      width: 300px; }
   #editPhotoContainer {
     margin: 5px auto; }
     #editPhotoContainer #editBackground {
       margin: 3px auto; }
       #editPhotoContainer #editBackground img {
-        max-width: 200px; }
+        width: 300px; }
   #editButton {
     display: none; }
   #deleteButton {
-    display: none; } }
+    display: none; }
+  #picturesContainer ul li a img {
+    width: 300px; }
+  form {
+    width: 320px; }
+    form textarea {
+      font-size: 20px;
+      width: 200px; } }
