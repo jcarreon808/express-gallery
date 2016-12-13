@@ -1,6 +1,6 @@
 const Photo = require('../models').Photo;
 const User = require('../models').User;
-const bcrypt =  require('bcrypt');
+const bcrypt =  require('bcrypt-nodejs');
 const passport = require('passport');
 
 
