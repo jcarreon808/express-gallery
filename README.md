@@ -20,7 +20,8 @@ In your command line within the repository you cloned:
 - in another terminal pane, run the command `touch config/config.json`
 - in the config directory, open the config_example.json file and copy all into the newly created config.json file.
 - In config.json, enter your username for your database under the development section. *this is the username that we mentioned earlier
-- in another terminal pane, run the command `sequelize db:migrate`
+- in another terminal pane, run the command `sequelize init`
+- then run the command `sequlize db:migrate`
 - `gulp` to begin the server, it will automatically open your browser and begin the Redis server.
 
 ###Optional
