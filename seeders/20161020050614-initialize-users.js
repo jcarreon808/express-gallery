@@ -1,10 +1,10 @@
 'use strict';
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const bcrypt = require('bcrypt-nodejs');
+
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    let joeHash = bcrypt.hashSync('tacocat', saltRounds);
-    let rayHash = bcrypt.hashSync('ilovepugs', saltRounds);
+    let joeHash = bcrypt.hashSync('tacocat');
+    let rayHash = bcrypt.hashSync('ilovepugs');
 
     return queryInterface.bulkInsert('Users', [{
       username: 'joejoebinks',

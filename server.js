@@ -10,8 +10,7 @@ const RedisStore = require('connect-redis')(session);
 const db = require('./models');
 const config = require('./config/config.json');
 // const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const bcrypt = require('bcrypt-nodejs');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('./public'));
