@@ -68,6 +68,9 @@ body {
     }
   }
 }
+.details#description {
+  font-size: 16px;
+}
 #sideBar {
   margin-top: 25px;
   flex: 0 0 20%;
@@ -87,7 +90,39 @@ body {
     }
   }
 }
+#editButton {
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: $light-blue;
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  display: inline-block;
+  @include curvedEdges();
+  &:hover {
+    box-shadow: 2px 2px 2px black;
+  }
+  #editLink {
+    font-size: 30px;
+  }
+}
+#deleteButton {
+  margin-top: 20px;
+  background-color: $light-blue;
+  width: 85px;
+  padding: 5px;
+  text-align: center;
+  display: inline-block;
+  @include curvedEdges();
+  &:hover {
+    box-shadow: 2px 2px 2px black;
+  }
+  a {
+    font-size: 30px;
+  }
+}
 
+//index(home page)
 #picturesContainer {
   text-align: center;
   background-color: $opaque-brown;
@@ -112,7 +147,6 @@ body {
     }
   }
 }
-
 #featuredPicture {
   flex: 0 0 850px;
   text-align: center;
@@ -125,20 +159,49 @@ body {
   }
 }
 
-
+//new photo, edit photo, login, register pages
 #form {
   justify-content: center;
   background-color: $opaque-brown;
   @include curvedEdges();
   flex: 0 0 250px;
-  #newPhoto {
+  #formTitle {
     text-align: center;
   }
   #formSection {
     text-align: center;
   }
 }
+//button on all forms, edit, new, login, register
+button#send {
+  display: block;
+  margin: 10px auto;
+  border-style: none;
+  background-color: $text-color;
+  font-size: 20px;
+  font-family: 'Quattrocento Sans', sans-serif;
+  background-color: $light-blue;
+  color: $text-color;
+  &:hover {
+    box-shadow: 2px 2px 2px black;
+    transition: 0.3s;
+  }
+}
+input {
+  border-style: none;
+}
+//styling on new photo and edit photo forms
+textarea {
+  border-style: none;
+  resize: none;
+}
+//styles error messages on forms
+.error {
+  color: $strawberry;
+  padding: 3px;
+}
 
+//edit photo
 #editPhotoContainer {
   flex: 0 0 50%;
   margin-right: 20px;
@@ -152,15 +215,13 @@ body {
   }
 }
 
-#editTitle {
-  text-align: center;
-}
-
+//general styling on all pages
 a {
   text-decoration: none;
   color: $text-color;
 }
 
+//all pages - desktop view
 nav {
   flex: 0 0 100%;
   @include flexParent();
@@ -177,80 +238,15 @@ nav {
   }
 }
 
-.details#description {
-  font-size: 16px;
-}
 
-textarea {
-  border-style: none;
-  resize: none;
-}
-
-button#send {
-  display: block;
-  margin: 10px auto;
-  border-style: none;
-  background-color: $text-color;
-  font-size: 20px;
-  font-family: 'Quattrocento Sans', sans-serif;
-  background-color: $light-blue;
-  color: $text-color;
-  &:hover {
-    box-shadow: 2px 2px 2px black;
-    transition: 0.3s;
-  }
-}
-
-input {
-  border-style: none;
-}
-
-#editButton {
-  margin-top: 20px;
-  margin-right: 20px;
-  background-color: $light-blue;
-  width: 60px;
-  padding: 5px;
-  text-align: center;
-  display: inline-block;
-  @include curvedEdges();
-  &:hover {
-    box-shadow: 2px 2px 2px black;
-  }
-  #editLink {
-    font-size: 30px;
-  }
-}
-
-#deleteButton {
-  margin-top: 20px;
-  background-color: $light-blue;
-  width: 85px;
-  padding: 5px;
-  text-align: center;
-  display: inline-block;
-  @include curvedEdges();
-  &:hover {
-    box-shadow: 2px 2px 2px black;
-  }
-  a {
-    font-size: 30px;
-  }
-}
-
-
+//Hides side navigation bar
 .sidenav a {
   display: none;
 }
-
 #menu {
   display: none;
 }
 
-.error {
-  color: $strawberry;
-  padding: 3px;
-}
 
 @media screen and (max-width: 968px) {
   .sidenav {
@@ -357,13 +353,6 @@ input {
     p {
       display: none;
     }
-    #logout {
-      margin-right: 250px;
-    }
-    a {
-      display: none;
-    }
-
   }
 
   #featuredPicture {
@@ -373,11 +362,12 @@ input {
     }
   }
   #editPhotoContainer {
+    flex: 0 0 75%;
     margin: 5px auto;
     #editBackground {
       margin: 3px auto;
       img {
-        width: 600px;
+        width: 100%;
       }
     }
   }
@@ -390,15 +380,12 @@ input {
   }
   #picturesContainer{
     flex: 0 0 90%;
-    ul{
-      li{
-        flex: 0 0 45%;
-        padding: 5px;
-        a{
-          img{
-            width:100%;
-          }
-        }
+    ul > li{
+      flex: 0 0 45%;
+      padding: 5px;
+      a > img{
+        width:100%;
+        height: 100%;
       }
     }
   }
@@ -516,16 +503,6 @@ input {
     p {
       display: none;
     }
-    #logout {
-      margin-right: 250px;
-    }
-    a {
-      display: none;
-    }
-
-  }
-  nav {
-    display: none;
   }
 
   #featuredPicture {
@@ -550,16 +527,8 @@ input {
   #deleteButton {
     display: none;
   }
-  #picturesContainer{
-    ul{
-      li{
-        a{
-          img{
-            width:300px;
-          }
-        }
-      }
-    }
+  #picturesContainer > ul > li > a > img{
+    width:300px;
   }
   form{
     width:320px;

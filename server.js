@@ -66,7 +66,7 @@ passport.deserializeUser((user, done)=>{
 app.use('/',route);
 
 app.listen(8080, function() {
-  console.log('server started');
+  console.log('server started on http://localhost:8080');
   db.sequelize.sync()
     .catch(err =>{
       res.json({
